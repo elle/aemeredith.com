@@ -2,38 +2,39 @@
 %html
   %head
     %title aemeredith
-    %meta{content: 'text/html; charset=utf-8', 'http-equiv' => 'content-type'}
-
-    %link{href: 'http://fonts.googleapis.com/css?family=Playball', rel: 'stylesheet', type: 'text/css'}
-    %link{href: '/application.css', rel: 'stylesheet'}
+    %meta{content: "text/html; charset=utf-8", "http-equiv" => "content-type"}
+    %link{href: "/application.css", rel: "stylesheet"}
   %body
-    = yield
+    .wrapper
+      %header
+        %h1 Elle Meredith
 
-    %footer
-      %ul.icons
-        %li
-          %a.fa.twitter{href: 'https://twitter.com/aemeredith'}
-            %span Twitter
-        %li
-          %a.fa.github{href: 'https://github.com/elle'}
-            %span Github
-        %li
-          %a.fa.instagram{href: 'http://instagr.am/aemeredith'}
-            %span Instagram
-        %li
-          %a.fa.flickr{href: 'https://www.flickr.com/photos/aemeredith'}
-            %span Flickr
-        %li
-          %a.fa.linkedin{href: 'https://www.linkedin.com/in/ellemeredith'}
-            %span LinkedIn
-        %li
-          %a.fa.decafsucks{href: 'http://decafsucks.com/people/1379-aemeredith'}
-            %span Decaf sucks
-        %li
-          %a.fa.aboutme{href: 'http://about.me/aemeredith'}
-            %span About.me
-      .copyright
-        %ul.menu
-          %li ©aemeredith.com. All rights reserved.
+      %main
+        = yield
 
-    / %script{src: '/javascripts/application.js'}
+      %aside
+        %ul.links
+          %li
+            %a{href: "https://twitter.com/aemeredith"}
+              Twitter
+          %li
+            %a{href: "https://github.com/elle"}
+              Github
+          %li
+            %a{href: "http://instagr.am/aemeredith"}
+              Instagram
+          %li
+            %a{href: "https://www.flickr.com/photos/aemeredith"}
+              Flickr
+          %li
+            %a{href: "https://www.linkedin.com/in/ellemeredith"}
+              LinkedIn
+          %li
+            %a{href: "http://decafsucks.com/people/1379-aemeredith"}
+              Decaf Sucks
+      %footer
+        %p.copyright
+          %span.copy
+            &copy;
+          %span.site
+            aemeredith.com

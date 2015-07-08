@@ -1,162 +1,72 @@
-@charset 'UTF-8';
+// http://chriskempson.github.io/base16/#ocean
+@import "normalize";
 
-@import 'normalize';
-
-@font-face{font-family:'FontAwesome';src:url('font/fontawesome-webfont.eot?v=4.0.1');src:url('font/fontawesome-webfont.eot?#iefix&v=4.0.1') format('embedded-opentype'),url('font/fontawesome-webfont.woff?v=4.0.1') format('woff'),url('font/fontawesome-webfont.ttf?v=4.0.1') format('truetype'),url('font/fontawesome-webfont.svg?v=4.0.1#fontawesomeregular') format('svg');font-weight:normal;font-style:normal}
-
-$blue: #1F3136;
-$green: #35b88f;
-$brown: #2e1b08;
-$shadow: rgba(255,255,255,0.25);
+$base01: #343d46;
+$base03: #65737e;
+$base05: #c0c5ce;
+$base07: #96b5b4;
+$base08: #bf616a;
+$base0b: #a3be8c;
+$base0d: #8fa1b3;
 
 body {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 2rem;
-	line-height: 1.75em;
-	font-weight: 300;
-	letter-spacing: 1px;
-	color: #777;
-	background: whitesmoke;
-	text-shadow: 0 0 0.5px rgba(58,57,57,0.25);
-	-webkit-text-stroke: 0.25px;
+  background: $base01;
+  color: $base05;
+  font-family: Monaco, "Lucida Console", monospace;
+  font-size: 13px;
+  font-weight: 100;
 }
 
 h1 {
-	font: 4rem 'Playball';
-	font-weight: 400;
+  color: $base08;
 }
 
 p {
-	display: block;
-	margin: 0.5em 0 0 0;
-	padding: 0 0 1.5em 0;
+  margin-top: 0;
 }
 
 a {
-	color: $green;
-	text-shadow: 0 0 0.5px rgba(53,184,143,0.25);
-	-moz-transition: border-color 0.35s ease-in-out, color 0.35s ease-in-out;
-	-webkit-transition: border-color 0.35s ease-in-out, color 0.35s ease-in-out;
-	-o-transition: border-color 0.35s ease-in-out, color 0.35s ease-in-out;
-	-ms-transition: border-color 0.35s ease-in-out, color 0.35s ease-in-out;
-	transition: border-color 0.35s ease-in-out, color 0.35s ease-in-out;
-	text-decoration: none;
-	border-bottom: dotted 1px rgba(53,184,143,0.5);
+  color: $base0b;
+  text-decoration: none;
 
-	&:hover {
-		border-bottom-color: rgba(53,184,143,0);
-	}
+  &:hover {
+    color: $base07;
+  }
 }
 
-
-header {
-	margin-bottom: 1em;
+.wrapper {
+  margin-top: 2em;
+  position: relative;
+  width: 40em;
 }
 
-footer {
-	margin-top: 1em;
+header, main, footer {
+  margin-left: 10em;
 }
 
-section, article {
-	width: 25rem;
-	margin-bottom: 3em;
+aside {
+  position: absolute;
+  top: 4em;
+  left: 2em;
+  text-align: right;
 
-}
+  ul.links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-
-ul.icons {
-	cursor: default;
-	li {
-		display: inline-block;
-	}
-	a {
-		display: inline-block;
-		width: 2.5em;
-		height: 2.5em;
-		line-height: 2.5em;
-		text-align: center;
-		border: 0;
-	}
-}
-
-ul.menu {
-	cursor: default;
-	li {
-		display: inline-block;
-		line-height: 1em;
-		border-left: solid 1px #dad9d9;
-		padding: 0 0 0 0.5em;
-		margin: 0 0 0 0.5em;
-	}
-	li:first-child {
-		border-left: 0;
-		padding-left: 0;
-		margin-left: 0;
-	}
-}
-
-
-/*********************************************************************************/
-/* Icons                                                                         */
-/* Powered by Font Awesome by Dave Gandy | http://fontawesome.io                 */
-/* Licensed under the SIL OFL 1.1 (font), MIT (CSS)                              */
-/*********************************************************************************/
-
-.fa {
-	text-decoration: none;
-
-	span {
-		display: none;
-	}
-
-	&:before {
-		display: inline-block;
-		font-family: FontAwesome;
-		font-size: 1.25em;
-		text-decoration: none;
-		font-style: normal;
-		font-weight: normal;
-		line-height: 1;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
+  a {
+    color: $base0d;
+    text-align: right;
+  }
 }
 
 footer {
-	position: relative;
-	text-shadow: 0 0 0.5px $shadow;
-	text-align: center;
-	margin: 4.5em 0 0 0;
+  color: $base03;
 
-	&:after {
-		content: '';
-		display: block;
-		position: absolute;
-		top: -4.5em;
-		left: 50%;
-		height: 4.5em;
-		border-left: solid 1px #fff;
-	}
-
-	a {
-		text-shadow: 0 0 0.5px $shadow;
-		border-bottom-color: $shadow;
-	}
-
-	a:hover {
-		color: #35b88f;
-		text-shadow: 0 0 0.5px $shadow;
-		border-bottom-color: $shadow;
-	}
-
-	.icons {
-		padding: 0.75em 2em 0.75em 2em;
-		display: inline-block;
-		margin: 0 0 3em 0;
-	}
-
-	.copyright {
-		margin: 0 0 9em 0;
-		font-size: 0.8em;
-	}
+  span.copy {
+    margin-right: -5px;
+    font-size: 75%;
+  }
 }
