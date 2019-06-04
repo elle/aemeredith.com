@@ -5,10 +5,10 @@ configure do
   set :haml, format: :html5
 end
 
-get '/application.css' do
+get "/application.css" do
   scss :"stylesheets/application"
 end
 
-get '/' do
+get "/" do
   haml :index
 end
