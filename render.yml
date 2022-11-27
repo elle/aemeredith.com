@@ -1,0 +1,15 @@
+services:
+  - type: web # valid values: https://render.com/docs/yaml-spec#type
+    name: aemeredith
+    env: ruby # valid values: https://render.com/docs/yaml-spec#environment
+    startCommand: "bundle exec ruby app.rb"
+    plan: free # optional; defaults to starter
+    numInstances: 1
+    domains: # custom domains
+      - 'aemeredith.com'
+      - 'www.aemeredith.com'
+    envVars:
+      - key: LANG # Imported from Heroku app
+        value: en_US.UTF-8
+      - key: RACK_ENV # Imported from Heroku app
+        value: production
