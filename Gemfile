@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "3.0.4"
+ruby File.read(".ruby-version").strip
 
 gem "haml"
 gem "puma"
