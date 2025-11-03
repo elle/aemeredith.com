@@ -72,7 +72,7 @@ DEPENDENCIES
   foreman
   haml
   puma
-  rackup (~> 2.2)
+  rackup
   sass
   sinatra
 
