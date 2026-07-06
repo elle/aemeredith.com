@@ -29,7 +29,7 @@ class Post
 
     new(
       body: body.to_s,
-      date: meta["date"],
+      date: Date.parse(meta["date"].to_s),
       description: meta["description"],
       slug: File.basename(path, ".md"),
       title: meta["title"]
