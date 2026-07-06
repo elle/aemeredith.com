@@ -1,161 +1,95 @@
-%section.intro
-  %p
-    Elle is a well-rounded executive consultant and leadership coach with
-    a background in software engineering.
-    Her strengths are asking diﬃcult questions
-    while focusing on the bigger picture and business goals,
-    growing high performing teams and leaders,
-    and communicating with all relevant stakeholders.
+%main.site-main
+  %section.section.hero
+    .section__number 01
+    .section__body
+      %h1.hero__name
+        Elle
+        %br/
+        Meredith
+      %p.hero__tagline
+        Executive consultant and leadership coach, with 20+ years in
+        software engineering.
+      .hero__meta
+        %span!= 'Currently — <a class="link" href="http://blackmill.co">Blackmill</a>'
+        %span!= 'Previously Director of Eng — <a class="link" href="https://thoughtbot.com">thoughtbot</a>'
+        %span 20+ years in software
 
-  %p
-    Elle is passionate about creating an environment that
-    brings out the best in people.
-    While she is an accomplished technologist,
-    she believes in balancing business results with people retention.
-    She leads with curiosity,
-    understanding the “why” gives her the context to lead with integrity.
+  %section.section.bio
+    .section__number 02
+    .section__body.bio__columns
+      .bio__column
+        %p Elle is a well-rounded executive consultant and leadership coach with a background in software engineering. Her strengths are asking difficult questions while focusing on the bigger picture and business goals, growing high performing teams and leaders, and communicating with all relevant stakeholders.
+        %p Elle is passionate about creating an environment that brings out the best in people. While she is an accomplished technologist, she believes in balancing business results with people retention. She leads with curiosity, understanding the “why” gives her the context to lead with integrity.
+        %p Elle developed and ran two six-month engineering academies for Qantas Hotels and Disco. The curriculum covered programming fundamentals, clean code, refactoring, and agile workflows. She was on the Victorian Government’s Industry Advisory Panel to help assess digital skills training courses for the new Digital Skills and Jobs Program.
+      .bio__column
+        %p In 2021, she completed a post-grad certificate in Psychology for Business and Management at Curtin University. In 2025, she started her Masters in Leadership and Management (organisation dynamics) with NIODA.
+        %p She believes in writing clean code, driven by automatic tests, with agile practices, an even work/life balance, and a respectful and inclusive team culture. Her aim is to deliver clean, functional and user‑friendly applications in an appropriate timeframe without wasting resources.
+        %p!= 'When she is not immersed in the Ruby community, she is probably immersed in water, or lately, <a class="link" href="https://www.instagram.com/ellebread/">in bread flour</a>.'
 
-  %p
-    Elle is a software engineer with more than twenty years experience.
-    Currently, she is a consultant, and an executive and leadership coach at
-    <a href="http://blackmill.co">Blackmill</a>.
-    Before Blackmill, she was Head of Engineering at
-    <a href="https://thoughtbot.com">thoughtbot</a>.
+  %section.section.community
+    .section__number 03
+    .section__body
+      %h2.section__label Community
+      %p.community__text
+        != 'Elle has a passion for helping people learn to work better. She appreciates the value of strong communities. In 2014, she organised <a class="link" href="http://railsgirls.com/sydney">Rails Girls events in Sydney</a>, <a class="link" href="http://www.rubyconf.org.au/2014">RubyConfAU 2014</a>, and was a member of the <a class="link" href="https://ruby.org.au/">Ruby Australia</a> committee. In 2015, she co-organised <a class="link" href="http://2015.goruco.com/">Gotham Ruby Conference (GORUCO)</a> in New York City, and started a monthly work jelly for women in tech. In 2016, she co-organised <a class="link" href="https://www.instagram.com/p/BEJevFdJHxt/">Rails Camp USA East Coast</a> in the Catskills, NY and once again co-organised <a class="link" href="http://2016.goruco.com/">GORUCO X</a>. In 2018, she helped with the last <a class="link" href="http://goruco.com/">GORUCO conference</a>.'
 
-  %p
-    Elle developed and ran two six-month engineering academies for Qantas Hotels and Disco.
-    The curriculum covered
-    programming fundamentals,
-    clean code,
-    refactoring,
-    and agile workflows.
+  %section.section.testimonials{tabindex: 0}
+    .section__number 04
+    .section__body
+      %h2.section__label Testimonials
+      .testimonials__viewport
+        - testimonials.each_with_index do |testimonial, index|
+          %blockquote.testimonials__quote{class: ("is-active" if index.zero?), data: { author: testimonial["author"] }}
+            %p= testimonial["quote"]
+      .testimonials__controls
+        %cite.testimonials__cite= testimonials.first["author"]
+        .testimonials__nav
+          %span.testimonials__counter= "01 / %02d" % testimonials.length
+          %button.testimonials__btn.testimonials__btn--prev{type: "button", "aria-label": "Previous testimonial"}!= '&larr;'
+          %button.testimonials__btn.testimonials__btn--next{type: "button", "aria-label": "Next testimonial"}!= '&rarr;'
 
-  %p
-    Elle was on the Victorian Government's Industry Advisory Panel
-    to help assess digital skills training courses
-    for the new Digital Skills and Jobs Program.
+%section.values
+  .container.section
+    .section__number 05
+    .section__body
+      %h2.section__label Work values
+      %ol.values__list
+        %li
+          %span.values__num 01
+          Work with friends, or people who will become my friends
+        %li
+          %span.values__num 02
+          Write clean code accompanied with tests
+        %li
+          %span.values__num 03
+          A learning and growth mindset culture
+        %li
+          %span.values__num 04
+          Values collaboration and people’s opinions
+        %li
+          %span.values__num 05
+          Good work etiquette and respect for peers
+        %li
+          %span.values__num 06
+          Maintains work‑life balance
+        %li
+          %span.values__num 07
+          Flexible with remote work
+        %li
+          %span.values__num 08
+          Autonomy and agency
+        %li
+          %span.values__num 09
+          Good pay
 
-  %p
-    In 2021, she completed
-    a post-grad certificate in Psychology for Business and Management
-    at Curtin University.
-    In 2025, she started her Masters in Leadership and Management (organisation dynamic)
-    with NIODA.
-
-  %p
-    She believes in writing clean code,
-    driven by automatic tests,
-    with agile practices,
-    an even work/life balance,
-    and a respectful and inclusive team culture.
-    She constantly works to improve her understanding of technologies,
-    techniques,
-    anti-patterns,
-    and what is considered best practice.
-    Her aim is to deliver
-    clean, functional and user–friendly applications
-    in an appropriate timeframe
-    without wasting resources.
-
-  %p
-    Elle has a passion for helping people learn to work better.
-    She appreciates the value of strong communities.
-    In 2014, she organised
-    <a href="http://railsgirls.com/sydney">Rails Girls events in Sydney</a>,
-    <a href="http://www.rubyconf.org.au/2014">RubyConfAU 2014</a>,
-    and was a member of the
-    <a href="https://ruby.org.au/">Ruby Australia</a>
-    committee.
-    In 2015, she co-organised
-    <a href="http://2015.goruco.com/">Gotham Ruby Conference (GORUCO)</a>
-    in New York City,
-    and started a monthly work jelly for women in tech.
-    In 2016, she co-organised
-    <a href="https://www.instagram.com/p/BEJevFdJHxt/">Rails Camp USA East Coast</a>
-    in the Catskills, NY
-    and once again co-organised
-    <a href="http://2016.goruco.com/">GORUCO X</a>.
-    In 2018, she helped with the last <a href="http://goruco.com/">GORUCO conference</a>.
-
-  %p
-    When she is not immersed in the Ruby community,
-    she is probably immersed in water,
-    or lately,
-    <a href="https://www.instagram.com/ellebread/">in bread flour</a>.
-  %p
-
-%section#work-values
-  %h3 Work values
-
-  %p
-    Lately, people have been asking me what are the things I look for at a workplace.
-    Different people value different things.
-    For example, some would like to work on a product that will make a difference.
-    Others would like to work where at diverse workplaces or with other parents where there are good family benefits.
-    Some want parts of each of those, and more. Here are mine:
-
-  %ul
-    %li Work with friends, or people who will become my friends (because work is not just a job)
-    %li
-      Write clean code accompanied with tests
-      (so there is not a constant pressure to push out features without any regard to the quality of the code)
-    %li Has a learning and growth mindset culture (preferably with people I can learn from)
-    %li Values collaboration as well as people's opinions
-    %li Has good work etiquette and respect for peers (code reviews is a great place to check that)
-    %li Maintains work-life balance (so there is no expectation to work late)
-    %li Flexible with remote work
-    %li Allows for autonomy and agency
-    %li Good pay
-
-  %p
-    I can work without some of these things, but I typically choose not to.
-
-%section#talks
-  %h3 Talks
-
-  %ol
-    %li Dying Kittens and Vendor Prefixes Dramas, Brisbane Web Design Meeting, Feb 2012
-    %li Intro to Minitest, Rorosyd meetup, Sydney, Aug 2012
-    %li Smarter CSS with Sass, Web Directions South, Oct 2012
-    %li Sass Primer, Girl Geek Dinner Sydney meetup, Dec 2012
-    %li Better Web Typography with Modular Scale, What Do You Know Sydney, Mar 2013
-    %li Source Maps for Debugging, Web Directions Code, Melbourne, May 2013
-    %li Regular Expressions with Ruby, What Do You Know Sydney, Apr 2014
-    %li A Case Study in Time Zones, Railscamp Perth, Nov 2014
-    %li Introduction to TDD in Ruby, Railscamp Sydney, June 2015
-    %li Just in Time, Brighton Ruby, Jul 2015
-    %li Just in Time, Rails Israel, Tel Aviv, Nov 2015
-    %li Feedback Matters, Ruby Conf AU, Gold Coast, Feb 2016
-    %li Self-learning is a Marathon, not a Sprint, Ruby Nation, Washington DC, June 2016
-    %li Conference organisers Panelist, Write/Speak/Code, Chicago, IL, June 2016
-    %li Self-learning is a Marathon, not a Sprint, Ruby Conf AU, Melbourne, Feb 2017
-    %li About Product Design Sprints, Ruby Melbourne meetup, May 2017
-    %li Two heads are better than one, Ruby Melbourne meetup, July 2017
-    %li Re-imagining the hiring process for diversity and inclusion, Web Directions Code Leaders, Aug 2017
-    %li Learning to learn, Elixir Girls Melbourne, Sep 2017
-    %li Feedback matters, AlterConf, Melbourne, Sep 2017
-    %li Algorithms to live by and why should we care, Full Stack Conf Toronto, Oct 2017
-    %li Algorithms to live by and why should we care, Keynote, Keep Ruby Weird, Oct 2017
-    %li Workplace culture and hiring for diversity, Web Directions Culture Workshop, Nov 2017
-    %li Rediscovering Chrome DevTools, Web Directions Summit, Nov 2017
-    %li Rails Anti-Patterns, Ruby Melbourne meetup, Nov 2017
-    %li Algorithms to live by and why should we care, Keynote, Ruby Conf India, Feb 2018
-    %li Story telling with Git rebase, Full Stack Conf Toronto, Nov 2018
-    %li Algorithms to live by and why should we care, Ruby Conf AU, Feb, 2019
-    %li Story telling with Git rebase, Write/Speak/Code, San Francisco, CA, Aug 2019
-    %li Start your own apprenticeship program, Ruby Conf TH, Bangkok, Thailand, Sep 2019
-    %li Story telling with Git rebase, Ruby Conf, Nashville, Tennessee, Nov 2019
-    %li Start your own apprenticeship program, Ruby Conf AU, Melbourne, Australia, Feb 2020
-    %li Story telling with Git rebase, workshop, Git Merge 2020, Los Angeles, LA, Mar 2020
-    %li Work life balance, what it is and how to get it, Ruby Australia, Jan 2021
-    %li A blessing in default, or so fetch, Ruby Australia, December 2021
-    %li Grow your leadership style, Tech Leading Ladies, September 2022
-    %li Strategies for saying no, Rails Conf, Atlanta, April 2023
-    %li Writing a talk proposal, Tech Leading Ladies, May 2023
-    %li Learn to delegate, like a boss, RubyConf TH, October 2023
-    %li Confronting difficult conversations, Web Directions Code Leaders, November 2023
-    %li Levelling UP — A Careers Special Panel by F-Factor, March 2024
-    %li Rails anti-patterns, Ruby Conf AU, April 2024
-    %li Overcoming communication failures, Teach Leading Ladies, August 2024
-
-%br
+%section.talks
+  .container.section
+    .section__number 06
+    .section__body
+      %h2.section__label Talks
+      %ol.talks__list{data: { collapse: 8 }}
+        - talks.each do |talk|
+          %li.talks__item
+            = talk["title"]
+            %span.talks__venue= talk["venue"]
+      %button.talks__toggle{type: "button", hidden: true}= "Show all #{talks.length} talks"

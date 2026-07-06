@@ -1,73 +1,449 @@
-// http://chriskempson.github.io/base16/#ocean
 @import "normalize";
 
-$base01: #343d46;
-$base03: #65737e;
-$base05: #c0c5ce;
-$base07: #96b5b4;
-$base08: #bf616a;
-$base0b: #a3be8c;
-$base0d: #8fa1b3;
+// Design tokens
+$white: #ffffff;
+$ink: #111111;
+$ink-soft: #222222;
+$gray-55: #555555;
+$gray-77: #777777;
+$gray-99: #999999;
+$gray-cc: #cccccc;
+$gray-dd: #dddddd;
+$gray-ee: #eeeeee;
+$red: #c11c1c;
+
+$font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$max-width: 1120px;
+$side-padding: 24px;
+$bp-md: 720px;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
-  background: $base01;
-  color: $base05;
-  font-family: Monaco, "Lucida Console", monospace;
-  font-size: 13px;
-  font-weight: 100;
-  line-height: 1.8;
-}
-
-h1 {
-  color: $base08;
-}
-
-p {
-  margin-top: 0;
+  margin: 0;
+  background: $white;
+  color: $ink;
+  font-family: $font;
+  overflow-x: hidden;
 }
 
 a {
-  color: $base0b;
+  color: inherit;
   text-decoration: none;
+}
 
-  &:hover {
-    color: $base07;
+::selection {
+  background: $ink;
+  color: $white;
+}
+
+// Inline prose link (resting state lives here so :hover can win — see handoff)
+.link {
+  color: $ink;
+  border-bottom: 1px solid $gray-99;
+
+  &:hover,
+  &:focus {
+    color: $red;
+    border-bottom-color: $red;
   }
 }
 
-.wrapper {
-  margin-top: 2em;
-  position: relative;
-  width: 68em;
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $side-padding;
 }
 
-header, main, footer {
-  margin-left: 10em;
+// Header + navigation
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 32px $side-padding 16px;
+  border-bottom: 3px solid $ink;
 }
 
-aside {
-  position: absolute;
-  top: 4em;
-  left: 2em;
-  text-align: right;
+.site-header__logo {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 
-  ul.links {
-    list-style: none;
+  &:hover,
+  &:focus {
+    color: $red;
+  }
+}
+
+.site-nav {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.site-nav__link {
+  color: $gray-55;
+  border-bottom: 2px solid transparent;
+
+  &:hover,
+  &:focus {
+    color: $ink;
+    // fake-bold via shadow to avoid layout shift
+    text-shadow: 0 0 0.4px currentColor, 0 0 0.4px currentColor;
+    border-bottom-color: $red;
+  }
+
+  &.is-active {
+    color: $ink;
+    font-weight: 700;
+    border-bottom-color: $red;
+    text-shadow: none;
+  }
+}
+
+.site-nav__divider {
+  color: $gray-cc;
+}
+
+.site-nav__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  color: $ink;
+
+  &:hover,
+  &:focus {
+    color: $red;
+  }
+}
+
+// Main + section grid
+.site-main {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $side-padding;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 24px;
+  padding: 40px 0;
+}
+
+.section__number {
+  font-size: 13px;
+  font-weight: 700;
+  color: $red;
+}
+
+.section__label {
+  margin: 0 0 16px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+// Hero
+.hero {
+  padding: 56px 0 40px;
+  border-bottom: 1px solid $gray-dd;
+}
+
+.hero__name {
+  margin: 0 0 28px;
+  font-size: clamp(3.5rem, 13vw, 96px);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+}
+
+.hero__tagline {
+  margin: 0 0 24px;
+  max-width: 46ch;
+  font-size: 20px;
+  line-height: 1.5;
+  color: $ink-soft;
+}
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: $gray-55;
+}
+
+// Bio
+.bio {
+  border-bottom: 1px solid $gray-dd;
+}
+
+.bio__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: $ink-soft;
+}
+
+.bio__column p {
+  margin: 0 0 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Community
+.community {
+  border-bottom: 1px solid $gray-dd;
+}
+
+.community__text {
+  margin: 0;
+  max-width: 65ch;
+  font-size: 16px;
+  line-height: 1.7;
+  color: $ink-soft;
+}
+
+// Testimonials carousel
+.testimonials {
+  padding: 48px 0 64px;
+  outline: none;
+}
+
+.testimonials .section__body {
+  max-width: 70ch;
+}
+
+// All quotes share one grid cell so the container sizes to the tallest
+// quote (no fixed height, no layout jump, no overflow on narrow screens).
+.testimonials__viewport {
+  display: grid;
+  min-height: 170px;
+}
+
+.testimonials__quote {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+
+  &.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  p {
     margin: 0;
-    padding: 0;
-  }
-
-  a {
-    color: $base0d;
-    text-align: right;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.6;
+    color: #444444;
   }
 }
 
-footer {
-  color: $base03;
+.testimonials__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid $gray-dd;
+}
 
-  span.copy {
-    margin-right: -5px;
-    font-size: 75%;
+.testimonials__cite {
+  font-style: normal;
+  font-size: 14px;
+  color: $gray-55;
+}
+
+.testimonials__nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.testimonials__counter {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: $gray-99;
+}
+
+.testimonials__btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid $ink;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.testimonials__btn--prev {
+  background: $white;
+  color: $ink;
+
+  &:hover,
+  &:focus {
+    background: $ink;
+    color: $white;
+  }
+}
+
+.testimonials__btn--next {
+  background: $ink;
+  color: $white;
+
+  &:hover,
+  &:focus {
+    background: $white;
+    color: $ink;
+  }
+}
+
+// Work values (full-bleed red band)
+.values {
+  background: $red;
+  padding: 64px 0;
+  color: $white;
+
+  .section__number,
+  .section__label {
+    color: $white;
+  }
+}
+
+.values__list {
+  margin: 0;
+  padding: 0;
+  max-width: 65ch;
+  list-style: none;
+  font-size: 18px;
+  line-height: 2;
+  columns: 2;
+  column-gap: 40px;
+
+  li {
+    display: flex;
+    gap: 12px;
+    break-inside: avoid;
+  }
+}
+
+.values__num {
+  min-width: 22px;
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+// Talks
+.talks {
+  padding: 64px 0;
+}
+
+.talks__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+  line-height: 2;
+  color: $ink-soft;
+  columns: 2;
+  column-gap: 48px;
+
+  &.is-collapsed .talks__item:nth-child(n + 9) {
+    display: none;
+  }
+}
+
+.talks__item {
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid $gray-ee;
+  break-inside: avoid;
+}
+
+.talks__venue {
+  display: block;
+  font-size: 13px;
+  color: $gray-99;
+}
+
+.talks__toggle {
+  margin-top: 20px;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $red;
+  cursor: pointer;
+}
+
+// Footer
+.site-footer {
+  border-top: 3px solid $ink;
+  padding: 24px 0;
+  margin-top: 32px;
+}
+
+.site-footer__copy {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: $gray-77;
+}
+
+// Responsive
+@media (max-width: $bp-md) {
+  .site-header {
+    padding-top: 24px;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 12px 16px;
+  }
+
+  .section {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .bio__columns {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .values__list,
+  .talks__list {
+    columns: 1;
   }
 }
