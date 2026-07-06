@@ -1,0 +1,16 @@
+%main.site-main
+  %article
+    %section.section.article-header
+      .section__number 01
+      .section__body
+        %a.article__back{href: "/articles"} ← Articles
+        %h1.article__title= post.title
+        %p.article__meta
+          %time{datetime: post.date.iso8601}= post.date.strftime("%B %-d, %Y")
+        - if post.description
+          %p.article__description= post.description
+
+    %section.section.article-body
+      .section__number 02
+      .section__body.prose
+        != post.html

@@ -1,0 +1,17 @@
+%main.site-main
+  %section.section.articles-intro
+    .section__number 01
+    .section__body
+      %h1.articles__title Articles
+      %p.articles__subhead
+        Writing on team culture, organisational dynamics, and leadership —
+        for people building and running engineering teams.
+
+  - posts.group_by(&:year).sort_by { |year, _| -year }.each do |year, year_posts|
+    %section.section.articles-year
+      .articles__year= year
+      .section__body
+        - year_posts.each do |post|
+          %a.article-row{href: "/articles/#{post.slug}"}
+            %span.article-row__title= post.title
+            %time.article-row__date{datetime: post.date.iso8601}= post.date.strftime("%b %-d")

@@ -1,0 +1,14 @@
+---
+title: Values alignment
+date: 2022-06-20
+description: Why "hire for culture add" beats "hire for culture fit", and how clearly-defined company values make better hires and better decisions.
+---
+# Values alignment
+
+The other day I saw a [tweet](https://twitter.com/suzanbond/status/1523343444244111361) by Susan Bond that asked the question: "How important is it that your friends hold the same values as you? Is it very important? a little? or not important at all?" I was contemplating what my answer would be when the next day I saw this quote by [Kevin Kelly](https://kk.org/thetechnium/103-bits-of-advice-i-wish-i-had-known/): "Your growth as a conscious being is measured by the number of uncomfortable conversations you are willing to have". To be precise, values refer to principles or standards of behaviour that are not contextual, and shape our character and behaviour. For example authenticity, freedom, kindness, perseverance, pragmatism, or respect.
+
+I know that I can't be friends with people who have the opposite values than me. It would require too much energy and the interactions will not be pleasant. On the other hand, hanging out with people who are very much like me, who think like me, and have the same values as me is very pleasant but ultimately means we stay in our own little happy bubble and never change or grow. So I think the best option is to be friends with people with similar values to me, who think like me on some things but challenge me on others.
+
+The same principle applies at work. People used to say we should hire for _culture fit_ but that resulted in a monoculture where everyone in the organisation is the same as the other person. The problem is we usually end up with a homogeneity of privileged people that reject qualified candidates who don't match the pattern. It masks employment discrimination and social biases since the rejection is not about skills and capabilities. Instead, consider hiring for _culture add_. Culture is not a static state but continuously keeps evolving and changing. Instead of focusing on cultural sameness, consider how candidates can contribute to your organisational culture. Hire a diverse team of talented people that share your organisational values and can help your company and culture develop and grow.
+
+However, before a company can do that, it should define what its values are. Your company values are the beliefs, philosophies, and principles that drive your business. They reflect what you and the company stand for. They guide the relationships with everyone who's involved in the business. They help the team make accountable decisions, that are aligned with company values. Company values align the team to improve performance and reduce ineffective decisions. They improve team motivation as acceptable behaviour is clear and encouraged. And once again, company values make hiring the right people easier. So do you know what your company values are?
