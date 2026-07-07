@@ -1,0 +1,67 @@
+# Bread catalogue for Elle Bread. Prices are in whole dollars.
+- id: sourdough-psyllium-flaxseeds
+  name: Sourdough with psyllium husks and flaxseeds
+  price: 10
+- id: country-sourdough
+  name: Country sourdough
+  price: 9
+- id: spelt-honey-sourdough
+  name: Spelt and honey sourdough
+  price: 10
+- id: sourdough-wheat-germ
+  name: Sourdough with wheat germ
+  price: 9
+- id: spelt-flaxseeds-sourdough
+  name: Spelt and flaxseeds sourdough
+  price: 10
+- id: field-sourdough
+  name: Field sourdough
+  price: 9
+- id: sunflower-flax-honey
+  name: Sunflower, flax, and honey
+  price: 10
+- id: pan-rustique
+  name: Pan rustique
+  price: 9
+- id: lemon-poppyseeds
+  name: Lemon and poppyseeds
+  price: 10
+- id: ny-deli-loaf
+  name: NY deli loaf (rye and caraway seeds)
+  price: 10
+- id: soft-honey-wholewheat-loaf
+  name: Soft honey wholewheat loaf
+  price: 9
+- id: vegan-brioche-semolina-loaf
+  name: Vegan brioche with semolina sandwich loaf
+  price: 9
+- id: multigrain-loaf-seeded
+  name: Multigrain loaf (seeded)
+  price: 10
+- id: shokupan-wholewheat
+  name: Shokupan (Japanese milk bread) with wholewheat
+  price: 10
+- id: buttery-brioche-sourdough-loaf
+  name: Buttery brioche sourdough sandwich loaf
+  price: 10
+- id: pan-de-mie-sourdough-loaf
+  name: Pan de mie sourdough sandwich loaf
+  price: 10
+- id: overnight-oats-sourdough-loaf
+  name: Overnight oats sourdough sandwich loaf
+  price: 10
+- id: light-rye-sourdough-loaf
+  name: Light rye sourdough sandwich loaf
+  price: 9
+- id: olives-roasted-tomatoes-rye-loaf
+  name: Olives and roasted tomatoes rye sandwich loaf
+  price: 10
+- id: challah
+  name: Challah
+  price: 9
+- id: sourdough-bagels
+  name: Sourdough bagels
+  price: 4
+- id: zaatar-pitas
+  name: Za’atar pitas (3 pack)
+  price: 6

@@ -1,0 +1,44 @@
+%main.site-main
+  %section.section.bread-hero
+    .section__number 01
+    .section__body
+      %h1.bread__title Elle Bread
+      %p.bread__intro
+        Small-batch bakes, made by hand each week. Pick your loaves below —
+        I’ll confirm by text once your order’s in.
+
+  %section.section.bread-order
+    .section__number 02
+    .section__body
+      - if order
+        %h2.section__label Order received
+        .order-confirmation
+          %p!= "Thanks #{order[:name]} — your order is in. I’ll text #{order[:phone]} to confirm pickup."
+          %ul.order-confirmation__items
+            - order[:items].each do |item|
+              %li= "#{item[:quantity]} × #{item[:name]} — #{money(item[:quantity] * item[:price])}"
+          %p.order-confirmation__total= "Total #{money(order[:total])}"
+          %a.link{href: "/elle-bread"} Place another order
+      - else
+        %h2.section__label This week’s breads
+        %form.order-form{action: "/elle-bread/orders", method: "post"}
+          - if error
+            %p.order-form__error= error
+          - breads.each do |bread|
+            .bread-row{data: { price: bread["price"] }}
+              .bread-row__info
+                .bread-row__name= bread["name"]
+                .bread-row__price= money(bread["price"])
+              .bread-row__stepper
+                %button.stepper__btn{type: "button", data: { step: -1 }, "aria-label": "Remove one #{bread["name"]}"} −
+                %span.stepper__qty 0
+                %button.stepper__btn{type: "button", data: { step: 1 }, "aria-label": "Add one #{bread["name"]}"} +
+                %input{type: "hidden", name: "items[#{bread["id"]}]", value: 0}
+          .order-total
+            %span Total
+            %span.order-total__amount= money(0)
+          .order-fields
+            %input.order-input{type: "text", name: "name", placeholder: "Your name"}
+            %input.order-input{type: "tel", name: "phone", placeholder: "Phone number"}
+            %button.order-submit{type: "submit", disabled: true} Place order
+      %a.bread-admin-link{href: "/elle-bread/admin"} Admin

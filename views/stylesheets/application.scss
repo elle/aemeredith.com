@@ -610,6 +610,176 @@ a {
   }
 }
 
+// Elle Bread
+.bread-hero {
+  padding: 56px 0 40px;
+  border-bottom: 1px solid $gray-dd;
+}
+
+.bread__title {
+  margin: 0 0 20px;
+  font-size: clamp(2.5rem, 9vw, 64px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.bread__intro {
+  margin: 0;
+  max-width: 50ch;
+  font-size: 18px;
+  line-height: 1.6;
+  color: $ink-soft;
+}
+
+.bread-order .section__body {
+  max-width: 640px;
+}
+
+.order-form__error {
+  margin: 0 0 20px;
+  padding: 4px 0 4px 16px;
+  border-left: 3px solid $red;
+  font-size: 15px;
+  color: $red;
+}
+
+.bread-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  border-top: 1px solid $gray-ee;
+}
+
+.bread-row__name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.bread-row__price {
+  margin-top: 6px;
+  font-size: 14px;
+  color: $ink;
+}
+
+.bread-row__stepper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.stepper__btn {
+  width: 30px;
+  height: 30px;
+  background: $white;
+  color: $ink;
+  border: 1.5px solid $ink;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background: $ink;
+    color: $white;
+  }
+}
+
+.stepper__qty {
+  width: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  padding: 20px 0;
+  border-top: 1px solid $ink;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.order-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.order-input {
+  padding: 12px 14px;
+  background: $white;
+  border: 1px solid $gray-cc;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 16px;
+
+  &:focus {
+    outline: 2px solid $red;
+    outline-offset: 1px;
+  }
+}
+
+.order-submit {
+  margin-top: 6px;
+  padding: 15px;
+  background: $ink;
+  color: $white;
+  border: none;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background: $red;
+  }
+
+  &:disabled {
+    background: $gray-dd;
+    color: $gray-99;
+    cursor: not-allowed;
+  }
+}
+
+.order-confirmation {
+  padding: 4px 0 4px 16px;
+  border-left: 3px solid $ink;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.order-confirmation__items {
+  margin: 12px 0;
+  padding-left: 18px;
+  color: $gray-55;
+}
+
+.order-confirmation__total {
+  font-weight: 700;
+}
+
+.bread-admin-link {
+  display: inline-block;
+  margin-top: 48px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $gray-99;
+
+  &:hover,
+  &:focus {
+    color: $red;
+  }
+}
+
 // Footer
 .site-footer {
   border-top: 3px solid $ink;

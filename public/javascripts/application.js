@@ -99,6 +99,56 @@
     });
   }
 
+  function initElleBread() {
+    var form = document.querySelector(".order-form");
+    if (!form) return;
+
+    var rows = Array.prototype.slice.call(form.querySelectorAll(".bread-row"));
+    var totalEl = form.querySelector(".order-total__amount");
+    var nameInput = form.querySelector('input[name="name"]');
+    var phoneInput = form.querySelector('input[name="phone"]');
+    var submit = form.querySelector(".order-submit");
+
+    function qtyOf(row) {
+      return parseInt(row.querySelector('input[type="hidden"]').value, 10) || 0;
+    }
+
+    function refresh() {
+      var total = 0;
+      var hasItems = false;
+      rows.forEach(function (row) {
+        var qty = qtyOf(row);
+        total += qty * (parseFloat(row.getAttribute("data-price")) || 0);
+        if (qty > 0) hasItems = true;
+      });
+      totalEl.textContent = "$" + total.toFixed(2);
+      submit.disabled = !(
+        hasItems &&
+        nameInput.value.trim() !== "" &&
+        phoneInput.value.trim() !== ""
+      );
+    }
+
+    rows.forEach(function (row) {
+      var hidden = row.querySelector('input[type="hidden"]');
+      var qtyEl = row.querySelector(".stepper__qty");
+      row.querySelectorAll(".stepper__btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var step = parseInt(btn.getAttribute("data-step"), 10);
+          var next = Math.max(0, qtyOf(row) + step);
+          hidden.value = next;
+          qtyEl.textContent = next;
+          refresh();
+        });
+      });
+    });
+
+    nameInput.addEventListener("input", refresh);
+    phoneInput.addEventListener("input", refresh);
+    refresh();
+  }
+
   initTestimonials();
   initTalks();
+  initElleBread();
 })();
