@@ -10,8 +10,8 @@ class Post
 
   def self.all
     Dir.glob(File.join(POSTS_DIR, "*.md"))
-      .map { |path| from_file(path) }
-      .sort_by(&:date)
+      .filter_map { |path| from_file(path) }
+      .sort_by { |post| [post.date, post.slug] }
       .reverse
   end
 
@@ -25,15 +25,23 @@ class Post
 
   def self.from_file(path)
     _, frontmatter, body = File.read(path).split(/^---\s*$\n/, 3)
-    meta = YAML.safe_load(frontmatter, permitted_classes: [Date])
+    meta = YAML.safe_load(frontmatter.to_s, permitted_classes: [Date])
 
-    new(
-      body: body.to_s,
-      date: Date.parse(meta["date"].to_s),
-      description: meta["description"],
-      slug: File.basename(path, ".md"),
-      title: meta["title"]
-    )
+    if meta.is_a?(Hash) && meta["title"] && meta["date"]
+      new(
+        body: body.to_s,
+        date: Date.parse(meta["date"].to_s),
+        description: meta["description"],
+        slug: File.basename(path, ".md"),
+        title: meta["title"]
+      )
+    else
+      warn "Skipping post with invalid frontmatter: #{path}"
+      nil
+    end
+  rescue Psych::SyntaxError, ArgumentError => error
+    warn "Skipping post with invalid frontmatter: #{path} (#{error.message})"
+    nil
   end
 
   def initialize(body:, date:, description:, slug:, title:)
