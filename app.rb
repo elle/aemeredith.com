@@ -1,10 +1,34 @@
 require "bundler"
 require "yaml"
 Bundler.require(:default)
+require "sinatra/activerecord"
 require_relative "post"
+require_relative "order"
+require_relative "order_item"
+require_relative "order_notification"
 
 configure do
   set :haml, format: :html5
+end
+
+configure :production do
+  Mail.defaults do
+    delivery_method :smtp,
+      address: ENV["SMTP_ADDRESS"],
+      port: ENV.fetch("SMTP_PORT", 587),
+      user_name: ENV["SMTP_USERNAME"],
+      password: ENV["SMTP_PASSWORD"],
+      authentication: :plain,
+      enable_starttls_auto: true
+  end
+end
+
+configure :development do
+  Mail.defaults { delivery_method :logger }
+end
+
+configure :test do
+  Mail.defaults { delivery_method :test }
 end
 
 TALKS = YAML.load_file("data/talks.yml").freeze
@@ -83,9 +107,14 @@ post "/elle-bread/orders" do
   phone = params[:phone].to_s.strip
 
   if items.any? && !name.empty? && !phone.empty?
-    total = items.sum { |item| item[:quantity] * item[:price] }
-    order = { items: items, name: name, phone: phone, total: total }
-    # TODO: persist the order and email a notification (pending backend choice).
+    order = Order.place(items: items, name: name, phone: phone)
+
+    begin
+      OrderNotification.deliver(order)
+    rescue StandardError => error
+      warn "Order notification failed for order #{order.id}: #{error.message}"
+    end
+
     haml :elle_bread, locals: { breads: breads, error: nil, order: order }
   else
     status 422

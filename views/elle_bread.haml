@@ -13,11 +13,11 @@
       - if order
         %h2.section__label Order received
         .order-confirmation
-          %p!= "Thanks #{order[:name]} — your order is in. I’ll text #{order[:phone]} to confirm pickup."
+          %p!= "Thanks #{order.name} — your order is in. I’ll text #{order.phone} to confirm pickup."
           %ul.order-confirmation__items
-            - order[:items].each do |item|
-              %li= "#{item[:quantity]} × #{item[:name]} — #{money(item[:quantity] * item[:price])}"
-          %p.order-confirmation__total= "Total #{money(order[:total])}"
+            - order.order_items.each do |item|
+              %li= "#{item.quantity} × #{item.bread_name} — #{money(item.subtotal)}"
+          %p.order-confirmation__total= "Total #{money(order.total)}"
           %a.link{href: "/elle-bread"} Place another order
       - else
         %h2.section__label This week’s breads
