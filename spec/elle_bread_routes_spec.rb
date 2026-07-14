@@ -13,7 +13,7 @@ RSpec.describe "Elle Bread routes" do
       get "/elle-bread"
 
       expect(last_response).to be_ok
-      expect(last_response.body).to include("This week")
+      expect(last_response.body).to include("Breads this")
     end
   end
 

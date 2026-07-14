@@ -4,8 +4,8 @@
     .section__body
       %h1.bread__title Elle Bread
       %p.bread__intro
-        Small-batch bakes, made by hand each week. Pick your loaves below —
-        I’ll confirm by text once your order’s in.
+        Small-batch sourdough bakes, made by hand each week.
+        Pick your loaves below. I will confirm pickup time by text.
 
   %section.section.bread-order
     .section__number 02
@@ -20,7 +20,7 @@
           %p.order-confirmation__total= "Total #{money(order.total)}"
           %a.link{href: "/elle-bread"} Place another order
       - else
-        %h2.section__label This week’s breads
+        %h2.section__label= bread_day_heading
         %form.order-form{action: "/elle-bread/orders", method: "post"}
           - if error
             %p.order-form__error= error

@@ -9,6 +9,7 @@ if defined?(Dotenv)
 end
 
 require "sinatra/activerecord"
+require_relative "models/bread_day"
 require_relative "models/post"
 require_relative "models/order"
 require_relative "models/order_item"
@@ -53,6 +54,10 @@ WEEKLY_BREAD_IDS = BREADS.first(3).map { |bread| bread["id"] }.freeze
 helpers do
   def admin?
     session[:admin] == true
+  end
+
+  def bread_day_heading
+    BreadDay.for_week_of(Date.current).heading
   end
 
   def correct_password?(password)
