@@ -142,7 +142,6 @@ get "/articles/:slug" do
 end
 
 get "/bread" do
-  @active = :elle_bread
   @title = "Elle Bread"
   haml :bread, locals: {
     breads: weekly_breads,
@@ -155,7 +154,6 @@ get "/bread" do
 end
 
 post "/bread/orders" do
-  @active = :elle_bread
   @title = "Elle Bread"
   breads = weekly_breads
   items = ordered_items(breads, params[:items])
@@ -194,7 +192,6 @@ post "/bread/orders" do
 end
 
 get "/bread/admin/login" do
-  @active = :elle_bread
   @title = "Admin"
 
   if admin?
@@ -209,7 +206,6 @@ post "/bread/admin/session" do
     session[:admin] = true
     redirect "/bread/admin"
   else
-    @active = :elle_bread
     @title = "Admin"
     status 401
     haml :admin_login, locals: { error: "Incorrect password." }
@@ -223,7 +219,6 @@ end
 
 get "/bread/admin" do
   require_admin!
-  @active = :elle_bread
   @title = "Admin"
   haml :admin, locals: {
     breads: BREADS,
