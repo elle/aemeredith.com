@@ -144,7 +144,7 @@ end
 get "/bread" do
   @active = :elle_bread
   @title = "Elle Bread"
-  haml :elle_bread, locals: {
+  haml :bread, locals: {
     breads: weekly_breads,
     error: nil,
     name: nil,
@@ -172,7 +172,7 @@ post "/bread/orders" do
       warn "Order notification failed for order #{order.id}: #{error.message}"
     end
 
-    haml :elle_bread, locals: {
+    haml :bread, locals: {
       breads: breads,
       error: nil,
       name: nil,
@@ -182,7 +182,7 @@ post "/bread/orders" do
     }
   else
     status 422
-    haml :elle_bread, locals: {
+    haml :bread, locals: {
       breads: breads,
       error: order_error(order, items),
       name: params[:name],
