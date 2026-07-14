@@ -71,7 +71,7 @@ The public order form shows the three breads the admin has selected for the
 current week. Placing an order writes to the `orders` / `order_items` tables and
 emails a notification to the site owner.
 
-The admin area (`/elle-bread/admin`) is gated by a single password and lets you
+The admin area (`/bread/admin`) is gated by a single password and lets you
 pick the week's three breads and review order history. Orders carry a `status`
 column (defaulting to `unpaid`) as a seam for future payment integration.
 

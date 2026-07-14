@@ -4,8 +4,8 @@
     .section__body.admin-header__bar
       %h1.admin__title Admin
       .admin__actions
-        %a.admin__link{href: "/elle-bread"} View public form →
-        %form.admin__logout-form{action: "/elle-bread/admin/session", method: "post"}
+        %a.admin__link{href: "/bread"} View public form →
+        %form.admin__logout-form{action: "/bread/admin/session", method: "post"}
           %input{type: "hidden", name: "_method", value: "delete"}
           %button.admin__logout{type: "submit"} Log out
 
@@ -13,7 +13,7 @@
     .section__number 03
     .section__body
       %h2.section__label This week’s 3 breads
-      %form.weekly-form{action: "/elle-bread/admin/weekly-selection", method: "post"}
+      %form.weekly-form{action: "/bread/admin/weekly-selection", method: "post"}
         %input{type: "hidden", name: "_method", value: "put"}
         %p.weekly-form__hint= "#{selected_ids.length} of 3 selected"
         - breads.each do |bread|

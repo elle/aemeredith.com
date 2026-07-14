@@ -6,24 +6,24 @@ require "app"
 RSpec.describe "Elle Bread routes" do
   include Rack::Test::Methods
 
-  describe "GET /elle-bread" do
+  describe "GET /bread" do
     it "renders the order form" do
       allow(WeeklySelection).to receive(:current_bread_ids).and_return([])
 
-      get "/elle-bread"
+      get "/bread"
 
       expect(last_response).to be_ok
       expect(last_response.body).to include("Breads this")
     end
   end
 
-  describe "POST /elle-bread/orders" do
+  describe "POST /bread/orders" do
     context "when items and contact details are present" do
       it "places the order and shows a confirmation", :db do
         allow(WeeklySelection).to receive(:current_bread_ids).and_return([])
         allow(OrderNotification).to receive(:deliver)
 
-        post "/elle-bread/orders",
+        post "/bread/orders",
           items: { first_bread_id => "1" },
           name: "Elle",
           phone: "0400 123 456"
@@ -37,7 +37,7 @@ RSpec.describe "Elle Bread routes" do
       it "responds with 422 and an error" do
         allow(WeeklySelection).to receive(:current_bread_ids).and_return([])
 
-        post "/elle-bread/orders", name: "Elle", phone: "0400 123 456"
+        post "/bread/orders", name: "Elle", phone: "0400 123 456"
 
         expect(last_response.status).to eq(422)
         expect(last_response.body).to include("at least one loaf")
@@ -48,7 +48,7 @@ RSpec.describe "Elle Bread routes" do
       it "responds with 422 and an error", :db do
         allow(WeeklySelection).to receive(:current_bread_ids).and_return([])
 
-        post "/elle-bread/orders",
+        post "/bread/orders",
           items: { first_bread_id => "1" },
           name: "Elle",
           phone: "12345"
@@ -59,18 +59,18 @@ RSpec.describe "Elle Bread routes" do
     end
   end
 
-  describe "GET /elle-bread/admin" do
+  describe "GET /bread/admin" do
     context "when not logged in" do
       it "redirects to the login page" do
-        get "/elle-bread/admin"
+        get "/bread/admin"
 
         expect(last_response).to be_redirect
-        expect(last_response.location).to end_with("/elle-bread/admin/login")
+        expect(last_response.location).to end_with("/bread/admin/login")
       end
     end
   end
 
-  describe "POST /elle-bread/admin/session" do
+  describe "POST /bread/admin/session" do
     around do |example|
       original = ENV["ADMIN_PASSWORD"]
       ENV["ADMIN_PASSWORD"] = "secret"
@@ -80,16 +80,16 @@ RSpec.describe "Elle Bread routes" do
 
     context "when the password is correct" do
       it "redirects to the admin dashboard" do
-        post "/elle-bread/admin/session", password: "secret"
+        post "/bread/admin/session", password: "secret"
 
         expect(last_response).to be_redirect
-        expect(last_response.location).to end_with("/elle-bread/admin")
+        expect(last_response.location).to end_with("/bread/admin")
       end
     end
 
     context "when the password is incorrect" do
       it "responds with 401" do
-        post "/elle-bread/admin/session", password: "wrong"
+        post "/bread/admin/session", password: "wrong"
 
         expect(last_response.status).to eq(401)
         expect(last_response.body).to include("Incorrect password")
@@ -97,13 +97,13 @@ RSpec.describe "Elle Bread routes" do
     end
   end
 
-  describe "PUT /elle-bread/admin/weekly-selection" do
+  describe "PUT /bread/admin/weekly-selection" do
     context "when not logged in" do
       it "redirects to the login page" do
-        put "/elle-bread/admin/weekly-selection", bread_ids: [first_bread_id]
+        put "/bread/admin/weekly-selection", bread_ids: [first_bread_id]
 
         expect(last_response).to be_redirect
-        expect(last_response.location).to end_with("/elle-bread/admin/login")
+        expect(last_response.location).to end_with("/bread/admin/login")
       end
     end
   end

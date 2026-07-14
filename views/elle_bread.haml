@@ -18,11 +18,11 @@
             - order.order_items.each do |item|
               %li= "#{item.quantity} × #{item.bread_name} — #{money(item.subtotal)}"
           %p.order-confirmation__total= "Total #{money(order.total)}"
-          %a.link{href: "/elle-bread"} Place another order
+          %a.link{href: "/bread"} Place another order
       - else
         - total = breads.sum { |bread| quantities.fetch(bread["id"], 0).to_i * bread["price"] }
         %h2.section__label= bread_day_heading
-        %form.order-form{action: "/elle-bread/orders", method: "post"}
+        %form.order-form{action: "/bread/orders", method: "post"}
           - breads.each do |bread|
             - quantity = quantities.fetch(bread["id"], 0).to_i
             .bread-row{data: { price: bread["price"] }}
@@ -42,4 +42,3 @@
             %input.order-input{type: "text", name: "name", placeholder: "Your name", value: name}
             %input.order-input{type: "tel", name: "phone", placeholder: "Phone number", value: phone}
             %button.order-submit{type: "submit"} Place order
-      %a.bread-admin-link{href: "/elle-bread/admin"} Admin

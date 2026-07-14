@@ -72,7 +72,7 @@ helpers do
 
   def require_admin!
     unless admin?
-      redirect "/elle-bread/admin/login"
+      redirect "/bread/admin/login"
     end
   end
 
@@ -136,7 +136,7 @@ get "/articles/:slug" do
   end
 end
 
-get "/elle-bread" do
+get "/bread" do
   @active = :elle_bread
   @title = "Elle Bread"
   haml :elle_bread, locals: {
@@ -149,7 +149,7 @@ get "/elle-bread" do
   }
 end
 
-post "/elle-bread/orders" do
+post "/bread/orders" do
   @active = :elle_bread
   @title = "Elle Bread"
   breads = weekly_breads
@@ -188,21 +188,21 @@ post "/elle-bread/orders" do
   end
 end
 
-get "/elle-bread/admin/login" do
+get "/bread/admin/login" do
   @active = :elle_bread
   @title = "Admin"
 
   if admin?
-    redirect "/elle-bread/admin"
+    redirect "/bread/admin"
   else
     haml :admin_login, locals: { error: nil }
   end
 end
 
-post "/elle-bread/admin/session" do
+post "/bread/admin/session" do
   if correct_password?(params[:password])
     session[:admin] = true
-    redirect "/elle-bread/admin"
+    redirect "/bread/admin"
   else
     @active = :elle_bread
     @title = "Admin"
@@ -211,12 +211,12 @@ post "/elle-bread/admin/session" do
   end
 end
 
-delete "/elle-bread/admin/session" do
+delete "/bread/admin/session" do
   session.delete(:admin)
-  redirect "/elle-bread"
+  redirect "/bread"
 end
 
-get "/elle-bread/admin" do
+get "/bread/admin" do
   require_admin!
   @active = :elle_bread
   @title = "Admin"
@@ -227,10 +227,10 @@ get "/elle-bread/admin" do
   }
 end
 
-put "/elle-bread/admin/weekly-selection" do
+put "/bread/admin/weekly-selection" do
   require_admin!
   catalog_ids = BREADS.map { |bread| bread["id"] }
   chosen = Array(params[:bread_ids]).select { |id| catalog_ids.include?(id) }
   WeeklySelection.replace(chosen)
-  redirect "/elle-bread/admin"
+  redirect "/bread/admin"
 end
