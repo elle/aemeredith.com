@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin: 0; background: #ffffff; }
+  a { text-decoration: none; color: inherit; }
+  ::selection { background: #000; color: #fff; }
+  .el-link { color: #111; border-bottom: 1px solid #999; }
+  .el-link:hover, .el-link:focus { color: #c11c1c; border-bottom-color: #c11c1c; }
+  .logo-link { color: #111; }
+  .logo-link:hover, .logo-link:focus { color: #c11c1c; }
+  .nav-link { color: #555; font-weight: 400; border-bottom: 2px solid transparent; }
+  .nav-link:hover, .nav-link:focus { color: #111; text-shadow: 0 0 0.4px currentColor, 0 0 0.4px currentColor; border-bottom-color: #c11c1c; }
+  .nav-badge-outline { color: #111; }
+  .nav-badge-outline:hover, .nav-badge-outline:focus { color: #c11c1c; }
+  .nav-badge-solid { color: #111; }
+  .nav-badge-solid:hover, .nav-badge-solid:focus { color: #c11c1c; }
+  .btn-primary { background: #111; color: #fff; }
+  .btn-primary:hover, .btn-primary:focus { background: #c11c1c; }
+  .btn-primary:disabled { background: #ddd; color: #999; cursor: not-allowed; }
+  .btn-outline { background: #fff; color: #111; border: 1.5px solid #111; }
+  .btn-outline:hover, .btn-outline:focus { background: #111; color: #fff; }
+  input[type="text"], input[type="tel"], input[type="password"] { font-family: inherit; }
+  input:focus { outline: 2px solid #c11c1c; outline-offset: 1px; }
+</style>
+</helmet>
+
+<div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #111; background: #ffffff; min-height: 100vh;">
+
+  <header style="max-width: 1120px; margin: 0 auto; padding: 32px 24px 16px; display: flex; justify-content: space-between; align-items: baseline; border-bottom: 3px solid #111;">
+    <a href="Home.dc.html" class="logo-link" style="font-size: 17px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase;">Elle Meredith</a>
+    <nav style="display: flex; gap: 24px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; align-items: baseline;">
+      <a href="Home.dc.html" class="nav-link" style="border-bottom-width: 2px; border-bottom-style: solid;">Home</a>
+      <a href="Articles.dc.html" class="nav-link" style="border-bottom-width: 2px; border-bottom-style: solid;">Articles</a>
+      <a href="Elle Bread.dc.html" style="font-weight: 700; border-bottom: 2px solid #c11c1c;">Elle Bread</a>
+      <span style="color: #ccc;">/</span>
+      <a href="https://github.com/elle" aria-label="Github" class="nav-badge-outline" style="display: flex; align-items: center; justify-content: center; width: 26px; height: 26px;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/ellemeredith" aria-label="LinkedIn" class="nav-badge-solid" style="display: flex; align-items: center; justify-content: center; width: 26px; height: 26px;">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+      </a>
+    </nav>
+  </header>
+
+  <main style="max-width: 1120px; margin: 0 auto; padding: 0 24px;">
+
+    <sc-if value="{{ isPublic }}" hint-placeholder-val="{{ true }}">
+      <section style="display: grid; grid-template-columns: 60px 1fr; gap: 24px; padding: 56px 0 40px; border-bottom: 1px solid #ddd;">
+        <div style="font-size: 13px; color: #c11c1c; font-weight: 700;">01</div>
+        <div>
+          <h1 style="font-size: 64px; font-weight: 700; line-height: 0.95; margin: 0 0 20px; letter-spacing: -0.02em;">Elle Bread</h1>
+          <p style="font-size: 18px; line-height: 1.6; margin: 0; max-width: 50ch; color: #222;">Small-batch bakes, made by hand each week. Pick your loaves below &mdash; I&rsquo;ll confirm by text once your order&rsquo;s in.</p>
+        </div>
+      </section>
+
+      <section style="display: grid; grid-template-columns: 60px 1fr; gap: 24px; padding: 40px 0; border-bottom: 1px solid #ddd;">
+        <div style="font-size: 13px; color: #c11c1c; font-weight: 700;">02</div>
+        <div style="max-width: 640px;">
+          <h2 style="font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 20px;">This week&rsquo;s breads</h2>
+
+          <sc-for list="{{ weeklyBreads }}" as="bread" hint-placeholder-count="3">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; border-top: 1px solid #eee;">
+              <div>
+                <div style="font-size: 18px; font-weight: 700;">{{ bread.name }}</div>
+                <div style="font-size: 14px; color: #777; margin-top: 4px;">{{ bread.description }}</div>
+                <div style="font-size: 14px; color: #111; margin-top: 6px;">{{ bread.priceLabel }}</div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+                <button onClick="{{ bread.dec }}" class="btn-outline" style="width: 30px; height: 30px; font-size: 16px; cursor: pointer;">&minus;</button>
+                <span style="width: 20px; text-align: center; font-size: 16px;">{{ bread.qty }}</span>
+                <button onClick="{{ bread.inc }}" class="btn-outline" style="width: 30px; height: 30px; font-size: 16px; cursor: pointer;">+</button>
+              </div>
+            </div>
+          </sc-for>
+
+          <div style="display: flex; justify-content: space-between; padding: 20px 0; border-top: 1px solid #111; margin-top: 4px; font-size: 20px; font-weight: 700;">
+            <span>Total</span>
+            <span>{{ totalLabel }}</span>
+          </div>
+
+          <div style="margin-top: 28px; display: flex; flex-direction: column; gap: 14px;">
+            <input type="text" placeholder="Your name" value="{{ name }}" onChange="{{ onNameChange }}" style="font-size: 16px; padding: 12px 14px; border-radius: 0; border: 1px solid #ccc; background: #fff;" />
+            <input type="tel" placeholder="Phone number" value="{{ phone }}" onChange="{{ onPhoneChange }}" style="font-size: 16px; padding: 12px 14px; border-radius: 0; border: 1px solid #ccc; background: #fff;" />
+            <button onClick="{{ submitOrder }}" disabled="{{ !canSubmit }}" class="btn-primary" style="margin-top: 6px; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 15px; border: none; cursor: pointer;">Place order</button>
+          </div>
+
+          <sc-if value="{{ orderConfirmed }}" hint-placeholder-val="{{ false }}">
+            <p style="margin-top: 20px; font-size: 15px; border-left: 3px solid #111; padding: 4px 0 4px 16px;">Thanks {{ name }} &mdash; your order is in. I&rsquo;ll text {{ phone }} to confirm pickup.</p>
+          </sc-if>
+
+          <a href="#" onClick="{{ goAdminLogin }}" style="display: inline-block; margin-top: 48px; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: #999;">Admin</a>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isAdminLogin }}" hint-placeholder-val="{{ false }}">
+      <section style="display: grid; grid-template-columns: 60px 1fr; gap: 24px; padding: 56px 0;">
+        <div style="font-size: 13px; color: #c11c1c; font-weight: 700;">02</div>
+        <div style="max-width: 320px;">
+          <h1 style="font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 24px;">Admin login</h1>
+          <input type="password" placeholder="Password" value="{{ adminPassword }}" onChange="{{ onAdminPasswordChange }}" style="width: 100%; box-sizing: border-box; font-size: 16px; padding: 12px 14px; border-radius: 0; border: 1px solid #ccc; background: #fff; margin-bottom: 14px;" />
+          <button onClick="{{ submitAdminLogin }}" class="btn-primary" style="width: 100%; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 14px; border: none; cursor: pointer;">Log in</button>
+          <a href="#" onClick="{{ goPublic }}" style="display: inline-block; margin-top: 20px; font-size: 13px; color: #999;">&larr; Back to order form</a>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isAdmin }}" hint-placeholder-val="{{ false }}">
+      <section style="display: grid; grid-template-columns: 60px 1fr; gap: 24px; padding: 56px 0 40px; border-bottom: 1px solid #ddd;">
+        <div style="font-size: 13px; color: #c11c1c; font-weight: 700;">02</div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <h1 style="font-size: 40px; font-weight: 700; margin: 0; letter-spacing: -0.01em;">Admin</h1>
+          <a href="#" onClick="{{ goPublic }}" style="font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: #999;">View public form &rarr;</a>
+        </div>
+      </section>
+
+      <section style="display: grid; grid-template-columns: 60px 1fr; gap: 24px; padding: 40px 0; border-bottom: 1px solid #ddd;">
+        <div style="font-size: 13px; color: #c11c1c; font-weight: 700;">03</div>
+        <div style="max-width: 640px;">
+          <h2 style="font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 6px;">This week&rsquo;s 3 breads</h2>
+          <p style="font-size: 14px; color: #999; margin: 0 0 16px;">{{ weeklySelectionHint }}</p>
+
+          <sc-for list="{{ allBreadsForAdmin }}" as="bread" hint-placeholder-count="6">
+            <label style="display: flex; align-items: center; gap: 12px; padding: 14px 0; border-top: 1px solid #eee; cursor: pointer;">
+              <input type="checkbox" checked="{{ bread.selected }}" onChange="{{ bread.toggle }}" disabled="{{ bread.disableToggle }}" style="width: 18px; height: 18px;" />
+              <span style="font-size: 16px; flex: 1;">{{ bread.name }}</span>
+              <span style="font-size: 14px; color: #777;">{{ bread.priceLabel }}</span>
+            </label>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="display: grid; grid-template-columns: 60px 1fr; gap: 24px; padding: 40px 0 64px;">
+        <div style="font-size: 13px; color: #c11c1c; font-weight: 700;">04</div>
+        <div>
+          <h2 style="font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 20px;">Order history</h2>
+          <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+            <thead>
+              <tr>
+                <th style="text-align: left; font-weight: 700; color: #111; padding: 0 0 12px; border-bottom: 2px solid #111;">Date</th>
+                <th style="text-align: left; font-weight: 700; color: #111; padding: 0 0 12px; border-bottom: 2px solid #111;">Name</th>
+                <th style="text-align: left; font-weight: 700; color: #111; padding: 0 0 12px; border-bottom: 2px solid #111;">Phone</th>
+                <th style="text-align: left; font-weight: 700; color: #111; padding: 0 0 12px; border-bottom: 2px solid #111;">Order</th>
+                <th style="text-align: right; font-weight: 700; color: #111; padding: 0 0 12px; border-bottom: 2px solid #111;">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{ orderHistory }}" as="order" hint-placeholder-count="4">
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #eee;">{{ order.dateLabel }}</td>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #eee;">{{ order.name }}</td>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #eee;">{{ order.phone }}</td>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #eee; color: #555;">{{ order.summary }}</td>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #eee; text-align: right;">{{ order.totalLabel }}</td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </sc-if>
+
+  </main>
+
+  <footer style="border-top: 3px solid #111; padding: 24px 0; margin-top: 32px;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 0 24px;">
+      <p style="margin: 0; font-size: 12px; color: #777; letter-spacing: 0.02em;">&copy; aemeredith.com</p>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  // Placeholder bread list -- swap in real prices/options from the bread YAML file.
+  breadCatalog = [
+    { id: 'sourdough', name: 'Sourdough Loaf', description: 'Naturally leavened, 24hr ferment', price: 12 },
+    { id: 'milk-bread', name: 'Milk Bread', description: 'Soft Japanese-style shokupan', price: 10 },
+    { id: 'cinnamon-scrolls', name: 'Cinnamon Scrolls (6 pack)', description: 'Brown butter, maple glaze', price: 18 },
+    { id: 'focaccia', name: 'Focaccia', description: 'Rosemary & flaky salt', price: 14 },
+    { id: 'baguette', name: 'Baguette', description: 'Classic thin crust', price: 6 },
+    { id: 'seeded-rye', name: 'Seeded Rye', description: 'Dark rye, mixed seeds', price: 13 },
+  ];
+
+  state = {
+    view: 'public', // public | adminLogin | admin
+    weeklyIds: ['sourdough', 'milk-bread', 'cinnamon-scrolls'],
+    qty: { sourdough: 0, 'milk-bread': 0, 'cinnamon-scrolls': 0 },
+    name: '',
+    phone: '',
+    orderConfirmed: false,
+    adminPassword: '',
+  };
+
+  orderHistory = [
+    { date: '2026-06-29', name: 'Priya Nair', phone: '0412 555 021', items: [['Sourdough Loaf', 2], ['Focaccia', 1]] },
+    { date: '2026-06-22', name: 'Marcus Webb', phone: '0498 112 774', items: [['Milk Bread', 1], ['Cinnamon Scrolls (6 pack)', 1]] },
+    { date: '2026-06-22', name: 'Dana Kaur', phone: '0433 908 210', items: [['Sourdough Loaf', 1]] },
+    { date: '2026-06-15', name: 'Owen Fitzgerald', phone: '0411 664 552', items: [['Baguette', 3]] },
+  ];
+
+  fmtMoney(n) { return '$' + n.toFixed(2); }
+
+  renderVals() {
+    const s = this.state;
+    const catalogById = Object.fromEntries(this.breadCatalog.map(b => [b.id, b]));
+
+    const weeklyBreads = s.weeklyIds.map(id => {
+      const b = catalogById[id];
+      return {
+        ...b,
+        priceLabel: this.fmtMoney(b.price),
+        qty: s.qty[id] || 0,
+        inc: () => this.setState(st => ({ qty: { ...st.qty, [id]: (st.qty[id] || 0) + 1 } })),
+        dec: () => this.setState(st => ({ qty: { ...st.qty, [id]: Math.max(0, (st.qty[id] || 0) - 1) } })),
+      };
+    });
+
+    const total = weeklyBreads.reduce((sum, b) => sum + b.qty * b.price, 0);
+    const hasItems = weeklyBreads.some(b => b.qty > 0);
+    const canSubmit = hasItems && s.name.trim().length > 0 && s.phone.trim().length > 0;
+
+    const allBreadsForAdmin = this.breadCatalog.map(b => {
+      const selected = s.weeklyIds.includes(b.id);
+      return {
+        ...b,
+        priceLabel: this.fmtMoney(b.price),
+        selected,
+        disableToggle: !selected && s.weeklyIds.length >= 3,
+        toggle: () => this.setState(st => {
+          const ids = st.weeklyIds.includes(b.id)
+            ? st.weeklyIds.filter(id => id !== b.id)
+            : (st.weeklyIds.length < 3 ? [...st.weeklyIds, b.id] : st.weeklyIds);
+          return { weeklyIds: ids };
+        }),
+      };
+    });
+
+    const fmtDate = (d) => new Date(d + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    const orderHistory = this.orderHistory.map(o => ({
+      dateLabel: fmtDate(o.date),
+      name: o.name,
+      phone: o.phone,
+      summary: o.items.map(([n, q]) => `${q}× ${n}`).join(', '),
+      totalLabel: this.fmtMoney(o.items.reduce((sum, [n, q]) => sum + q * catalogById[Object.keys(catalogById).find(k => catalogById[k].name === n)].price, 0)),
+    }));
+
+    return {
+      isPublic: s.view === 'public',
+      isAdminLogin: s.view === 'adminLogin',
+      isAdmin: s.view === 'admin',
+      weeklyBreads,
+      allBreadsForAdmin,
+      totalLabel: this.fmtMoney(total),
+      name: s.name,
+      phone: s.phone,
+      onNameChange: (e) => this.setState({ name: e.target.value }),
+      onPhoneChange: (e) => this.setState({ phone: e.target.value }),
+      canSubmit,
+      submitOrder: () => { if (canSubmit) this.setState({ orderConfirmed: true }); },
+      orderConfirmed: s.orderConfirmed,
+      goAdminLogin: (e) => { e.preventDefault(); this.setState({ view: 'adminLogin' }); },
+      goPublic: (e) => { e.preventDefault(); this.setState({ view: 'public' }); },
+      adminPassword: s.adminPassword,
+      onAdminPasswordChange: (e) => this.setState({ adminPassword: e.target.value }),
+      submitAdminLogin: () => this.setState({ view: 'admin' }),
+      weeklySelectionHint: `${s.weeklyIds.length} of 3 selected`,
+      orderHistory,
+    };
+  }
+}
+</script>
+</body>
+</html>

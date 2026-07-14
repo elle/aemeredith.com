@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin: 0; background: #ffffff; }
+  a { text-decoration: none; color: inherit; }
+  ::selection { background: #000; color: #fff; }
+  .el-link { color: #111; border-bottom: 1px solid #999; }
+  .el-link:hover, .el-link:focus { color: #c11c1c; border-bottom-color: #c11c1c; }
+  .logo-link { color: #111; }
+  .logo-link:hover, .logo-link:focus { color: #c11c1c; }
+  .nav-link { color: #555; font-weight: 400; border-bottom: 2px solid transparent; }
+  .nav-link:hover, .nav-link:focus { color: #111; text-shadow: 0 0 0.4px currentColor, 0 0 0.4px currentColor; border-bottom-color: #c11c1c; }
+  .nav-badge-outline { color: #111; }
+  .nav-badge-outline:hover, .nav-badge-outline:focus { color: #c11c1c; }
+  .nav-badge-solid { color: #111; }
+  .nav-badge-solid:hover, .nav-badge-solid:focus { color: #c11c1c; }
+  .article-row { border-bottom: none; }
+  .article-row:hover .article-title, .article-row:focus .article-title { color: #c11c1c; }
+</style>
+</helmet>
+
+<div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #111; background: #ffffff; min-height: 100vh;">
+
+  <header style="max-width: 1120px; margin: 0 auto; padding: 32px 24px 16px; display: flex; justify-content: space-between; align-items: baseline; border-bottom: 3px solid #111;">
+    <a href="Home.dc.html" class="logo-link" style="font-size: 17px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase;">Elle Meredith</a>
+    <nav style="display: flex; gap: 24px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; align-items: baseline;">
+      <a href="Home.dc.html" class="nav-link" style="border-bottom-width: 2px; border-bottom-style: solid;">Home</a>
+      <a href="Articles.dc.html" style="font-weight: 700; border-bottom: 2px solid #c11c1c;">Articles</a>
+      <a href="Elle Bread.dc.html" class="nav-link" style="border-bottom-width: 2px; border-bottom-style: solid;">Elle Bread</a>
+      <span style="color: #ccc;">/</span>
+      <a href="https://github.com/elle" aria-label="Github" class="nav-badge-outline" style="display: flex; align-items: center; justify-content: center; width: 26px; height: 26px;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/ellemeredith" aria-label="LinkedIn" class="nav-badge-solid" style="display: flex; align-items: center; justify-content: center; width: 26px; height: 26px;">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+      </a>
+    </nav>
+  </header>
+
+  <main style="max-width: 1120px; margin: 0 auto; padding: 0 24px;">
+
+    <section style="display: grid; grid-template-columns: 60px 1fr; gap: 24px; padding: 56px 0 40px; border-bottom: 1px solid #ddd;">
+      <div style="font-size: 13px; color: #c11c1c; font-weight: 700;">01</div>
+      <div>
+        <h1 style="font-size: 64px; font-weight: 700; line-height: 0.95; margin: 0 0 20px; letter-spacing: -0.02em;">Articles</h1>
+        <p style="font-size: 18px; line-height: 1.6; margin: 0; max-width: 50ch; color: #222;">Writing on team culture, organisational dynamics, and leadership &mdash; for people building and running engineering teams.</p>
+      </div>
+    </section>
+
+    <sc-for list="{{ groupedByYear }}" as="group" hint-placeholder-count="3">
+      <section style="display: grid; grid-template-columns: 60px 1fr; gap: 24px; padding: 40px 0; border-bottom: 1px solid #ddd;">
+        <div style="font-size: 32px; font-weight: 700; color: #ddd; line-height: 1;">{{ group.year }}</div>
+        <div>
+          <sc-for list="{{ group.items }}" as="post" hint-placeholder-count="3">
+            <a href="{{ post.href }}" class="article-row" style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 16px 0; border-top: 1px solid #eee;">
+              <span class="article-title" style="font-size: 19px; color: #111; transition: color 0.15s ease;">{{ post.title }}</span>
+              <span style="font-size: 13px; color: #999; white-space: nowrap;">{{ post.dateLabel }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+    </sc-for>
+
+  </main>
+
+  <footer style="border-top: 3px solid #111; padding: 24px 0; margin-top: 64px;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 0 24px;">
+      <p style="margin: 0; font-size: 12px; color: #777; letter-spacing: 0.02em;">&copy; aemeredith.com</p>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  // Placeholder content -- swap in real /posts markdown once standardized (frontmatter: title + date).
+  posts = [
+    { title: 'The one-on-one questions I actually use', date: '2026-05-12' },
+    { title: 'Why "high performing team" is the wrong goal', date: '2026-02-20' },
+    { title: 'Newsletter: What I learned coaching three first-time engineering managers', date: '2025-11-03' },
+    { title: 'Psychological safety is not the absence of disagreement', date: '2025-08-14' },
+    { title: 'Newsletter: Notes from the NIODA program, part one', date: '2025-06-01' },
+    { title: 'The org chart is not the organisation', date: '2025-03-22' },
+    { title: 'How to give feedback that people can actually act on', date: '2024-12-09' },
+    { title: 'Newsletter: On leaving a job well', date: '2024-09-17' },
+    { title: 'Delegation is a skill, not a personality trait', date: '2024-05-30' },
+    { title: 'What twenty years of code review taught me about trust', date: '2024-01-11' },
+  ];
+
+  renderVals() {
+    const fmt = (d) => new Date(d + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    const byYear = {};
+    for (const p of this.posts) {
+      const year = p.date.slice(0, 4);
+      if (!byYear[year]) byYear[year] = [];
+      byYear[year].push({ ...p, dateLabel: fmt(p.date), href: '#' });
+    }
+    const groupedByYear = Object.keys(byYear).sort((a, b) => b - a).map(year => ({ year, items: byYear[year] }));
+    return { groupedByYear };
+  }
+}
+</script>
+</body>
+</html>
