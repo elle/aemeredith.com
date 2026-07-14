@@ -780,6 +780,158 @@ a {
   }
 }
 
+// Elle Bread admin
+.admin-login {
+  max-width: 320px;
+}
+
+.admin-login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.admin-header__bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.admin__title {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.admin__actions {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.admin__link {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $gray-99;
+
+  &:hover,
+  &:focus {
+    color: $red;
+  }
+}
+
+.admin__logout-form {
+  margin: 0;
+}
+
+.admin__logout {
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $gray-99;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: $red;
+  }
+}
+
+.weekly-form__hint {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: $gray-99;
+}
+
+.weekly-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-top: 1px solid $gray-ee;
+  cursor: pointer;
+}
+
+.weekly-option__name {
+  flex: 1;
+  font-size: 16px;
+}
+
+.weekly-option__price {
+  font-size: 14px;
+  color: $gray-77;
+}
+
+.weekly-form__save {
+  margin-top: 24px;
+  padding: 14px 24px;
+  background: $ink;
+  color: $white;
+  border: none;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background: $red;
+  }
+}
+
+.orders-table__scroll {
+  overflow-x: auto;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  th {
+    padding: 0 16px 12px 0;
+    border-bottom: 2px solid $ink;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  td {
+    padding: 12px 16px 12px 0;
+    border-bottom: 1px solid $gray-ee;
+    vertical-align: top;
+  }
+}
+
+.orders-table__summary {
+  color: $gray-55;
+}
+
+.orders-table__nowrap {
+  white-space: nowrap;
+}
+
+.orders-table__amount {
+  padding-right: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.orders-empty {
+  margin: 0;
+  color: $gray-77;
+}
+
 // Footer
 .site-footer {
   border-top: 3px solid $ink;

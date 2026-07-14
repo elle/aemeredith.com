@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_08_000001) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_08_000002) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -32,6 +32,14 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_08_000001) do
     t.string "status", default: "unpaid", null: false
     t.decimal "total", precision: 8, scale: 2, default: "0.0", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "weekly_selections", force: :cascade do |t|
+    t.string "bread_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "week_start", null: false
+    t.index ["week_start", "bread_id"], name: "index_weekly_selections_on_week_start_and_bread_id", unique: true
   end
 
   add_foreign_key "order_items", "orders"

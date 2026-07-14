@@ -16,4 +16,11 @@ RSpec.configure do |config|
   config.disable_monkey_patching!
   config.order = :random
   Kernel.srand(config.seed)
+
+  config.around(:each, :db) do |example|
+    ActiveRecord::Base.transaction do
+      example.run
+      raise ActiveRecord::Rollback
+    end
+  end
 end

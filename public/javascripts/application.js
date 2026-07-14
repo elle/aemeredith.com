@@ -148,7 +148,34 @@
     refresh();
   }
 
+  function initWeeklySelection() {
+    var form = document.querySelector(".weekly-form");
+    if (!form) return;
+
+    var MAX = 3;
+    var checkboxes = Array.prototype.slice.call(
+      form.querySelectorAll('input[type="checkbox"]')
+    );
+    var hint = form.querySelector(".weekly-form__hint");
+
+    function refresh() {
+      var count = checkboxes.filter(function (box) {
+        return box.checked;
+      }).length;
+      hint.textContent = count + " of " + MAX + " selected";
+      checkboxes.forEach(function (box) {
+        box.disabled = !box.checked && count >= MAX;
+      });
+    }
+
+    checkboxes.forEach(function (box) {
+      box.addEventListener("change", refresh);
+    });
+    refresh();
+  }
+
   initTestimonials();
   initTalks();
   initElleBread();
+  initWeeklySelection();
 })();

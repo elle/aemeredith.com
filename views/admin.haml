@@ -1,0 +1,49 @@
+%main.site-main
+  %section.section.admin-header
+    .section__number 02
+    .section__body.admin-header__bar
+      %h1.admin__title Admin
+      .admin__actions
+        %a.admin__link{href: "/elle-bread"} View public form →
+        %form.admin__logout-form{action: "/elle-bread/admin/session", method: "post"}
+          %input{type: "hidden", name: "_method", value: "delete"}
+          %button.admin__logout{type: "submit"} Log out
+
+  %section.section.admin-weekly
+    .section__number 03
+    .section__body
+      %h2.section__label This week’s 3 breads
+      %form.weekly-form{action: "/elle-bread/admin/weekly-selection", method: "post"}
+        %input{type: "hidden", name: "_method", value: "put"}
+        %p.weekly-form__hint= "#{selected_ids.length} of 3 selected"
+        - breads.each do |bread|
+          %label.weekly-option
+            %input{type: "checkbox", name: "bread_ids[]", value: bread["id"], checked: selected_ids.include?(bread["id"])}
+            %span.weekly-option__name= bread["name"]
+            %span.weekly-option__price= money(bread["price"])
+        %button.weekly-form__save{type: "submit"} Save selection
+
+  %section.section.admin-orders
+    .section__number 04
+    .section__body
+      %h2.section__label Order history
+      - if orders.any?
+        .orders-table__scroll
+          %table.orders-table
+            %thead
+              %tr
+                %th Date
+                %th Name
+                %th Phone
+                %th Order
+                %th.orders-table__amount Total
+            %tbody
+              - orders.each do |order|
+                %tr
+                  %td.orders-table__nowrap= order.created_at.strftime("%b %-d, %Y")
+                  %td= order.name
+                  %td.orders-table__nowrap= order.phone
+                  %td.orders-table__summary= order.order_items.map { |item| "#{item.quantity}× #{item.bread_name}" }.join(", ")
+                  %td.orders-table__amount= money(order.total)
+      - else
+        %p.orders-empty No orders yet.
