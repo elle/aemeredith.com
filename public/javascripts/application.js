@@ -172,11 +172,12 @@
     });
 
     [nameInput, phoneInput].forEach(function (input) {
-      input.addEventListener("input", update);
-      input.addEventListener("blur", function () {
+      function validateField() {
         touched = true;
         update();
-      });
+      }
+      input.addEventListener("input", validateField);
+      input.addEventListener("blur", validateField);
     });
 
     form.addEventListener("submit", function (event) {
