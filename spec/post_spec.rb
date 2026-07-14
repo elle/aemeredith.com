@@ -2,7 +2,7 @@ require "spec_helper"
 require "fileutils"
 require "tmpdir"
 
-require "post"
+require "models/post"
 
 RSpec.describe Post do
   before do

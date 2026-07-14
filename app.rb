@@ -2,11 +2,11 @@ require "bundler"
 require "yaml"
 Bundler.require(:default)
 require "sinatra/activerecord"
-require_relative "post"
-require_relative "order"
-require_relative "order_item"
-require_relative "order_notification"
-require_relative "weekly_selection"
+require_relative "models/post"
+require_relative "models/order"
+require_relative "models/order_item"
+require_relative "models/order_notification"
+require_relative "models/weekly_selection"
 
 DEV_SESSION_SECRET =
   "a-development-session-secret-that-is-long-enough-0000000000000000"

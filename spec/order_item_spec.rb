@@ -1,6 +1,6 @@
 require "spec_helper"
 
-require "order_item"
+require "models/order_item"
 
 RSpec.describe OrderItem do
   describe ".from_line" do

@@ -3,7 +3,7 @@ require "kramdown"
 require "yaml"
 
 class Post
-  POSTS_DIR = File.expand_path("posts", __dir__)
+  POSTS_DIR = File.expand_path("../posts", __dir__)
   SLUG_FORMAT = /\A[a-z0-9-]+\z/
 
   attr_reader :date, :description, :slug, :title
