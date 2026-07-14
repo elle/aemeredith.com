@@ -15,7 +15,7 @@ RSpec.describe OrderNotification do
       message = OrderNotification.deliver(order)
       body = message.body.to_s
 
-      expect(body).to include("Elle (0400 000 000)")
+      expect(body).to include("Elle (0400000000)")
       expect(body).to include("2 × Country sourdough — $18.00")
       expect(body).to include("Total: $18.00")
     end

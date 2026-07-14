@@ -637,11 +637,15 @@ a {
 }
 
 .order-form__error {
-  margin: 0 0 20px;
+  margin: 20px 0;
   padding: 4px 0 4px 16px;
   border-left: 3px solid $red;
   font-size: 15px;
   color: $red;
+
+  &:empty {
+    display: none;
+  }
 }
 
 .bread-row {

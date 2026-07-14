@@ -19,15 +19,14 @@ RSpec.describe "Elle Bread routes" do
 
   describe "POST /elle-bread/orders" do
     context "when items and contact details are present" do
-      it "places the order and shows a confirmation" do
+      it "places the order and shows a confirmation", :db do
         allow(WeeklySelection).to receive(:current_bread_ids).and_return([])
-        allow(Order).to receive(:place).and_return(confirmed_order)
         allow(OrderNotification).to receive(:deliver)
 
         post "/elle-bread/orders",
           items: { first_bread_id => "1" },
           name: "Elle",
-          phone: "0400 000 000"
+          phone: "0400 123 456"
 
         expect(last_response).to be_ok
         expect(last_response.body).to include("Order received")
@@ -38,10 +37,24 @@ RSpec.describe "Elle Bread routes" do
       it "responds with 422 and an error" do
         allow(WeeklySelection).to receive(:current_bread_ids).and_return([])
 
-        post "/elle-bread/orders", name: "Elle", phone: "0400 000 000"
+        post "/elle-bread/orders", name: "Elle", phone: "0400 123 456"
 
         expect(last_response.status).to eq(422)
         expect(last_response.body).to include("at least one loaf")
+      end
+    end
+
+    context "when the phone number is not ten digits" do
+      it "responds with 422 and an error", :db do
+        allow(WeeklySelection).to receive(:current_bread_ids).and_return([])
+
+        post "/elle-bread/orders",
+          items: { first_bread_id => "1" },
+          name: "Elle",
+          phone: "12345"
+
+        expect(last_response.status).to eq(422)
+        expect(last_response.body).to include("10-digit")
       end
     end
   end
@@ -97,21 +110,6 @@ RSpec.describe "Elle Bread routes" do
 
   def app
     Sinatra::Application
-  end
-
-  def confirmed_order
-    Order.new(
-      name: "Elle",
-      order_items: [
-        OrderItem.new(
-          bread_name: "Country sourdough",
-          quantity: 1,
-          unit_price: 9
-        ),
-      ],
-      phone: "0400 000 000",
-      total: 9
-    )
   end
 
   def first_bread_id

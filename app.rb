@@ -76,6 +76,14 @@ helpers do
     end
   end
 
+  def order_error(order, items)
+    if items.empty?
+      "Please choose at least one loaf."
+    else
+      order.errors.full_messages.to_sentence
+    end
+  end
+
   def ordered_items(breads, quantities)
     quantities ||= {}
 
@@ -131,7 +139,14 @@ end
 get "/elle-bread" do
   @active = :elle_bread
   @title = "Elle Bread"
-  haml :elle_bread, locals: { breads: weekly_breads, error: nil, order: nil }
+  haml :elle_bread, locals: {
+    breads: weekly_breads,
+    error: nil,
+    name: nil,
+    order: nil,
+    phone: nil,
+    quantities: {},
+  }
 end
 
 post "/elle-bread/orders" do
@@ -139,23 +154,37 @@ post "/elle-bread/orders" do
   @title = "Elle Bread"
   breads = weekly_breads
   items = ordered_items(breads, params[:items])
-  name = params[:name].to_s.strip
-  phone = params[:phone].to_s.strip
+  order = Order.build(
+    items: items,
+    name: params[:name],
+    phone: params[:phone]
+  )
 
-  if items.any? && !name.empty? && !phone.empty?
-    order = Order.place(items: items, name: name, phone: phone)
-
+  if items.any? && order.save
     begin
       OrderNotification.deliver(order)
     rescue StandardError => error
       warn "Order notification failed for order #{order.id}: #{error.message}"
     end
 
-    haml :elle_bread, locals: { breads: breads, error: nil, order: order }
+    haml :elle_bread, locals: {
+      breads: breads,
+      error: nil,
+      name: nil,
+      order: order,
+      phone: nil,
+      quantities: {},
+    }
   else
     status 422
-    error = "Please choose at least one loaf and enter your name and phone."
-    haml :elle_bread, locals: { breads: breads, error: error, order: nil }
+    haml :elle_bread, locals: {
+      breads: breads,
+      error: order_error(order, items),
+      name: params[:name],
+      order: nil,
+      phone: params[:phone],
+      quantities: params[:items] || {},
+    }
   end
 end
 

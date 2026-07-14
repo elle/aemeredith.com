@@ -9,7 +9,7 @@ RSpec.describe Order, :db do
 
       expect(order).to be_persisted
       expect(order.name).to eq("Elle")
-      expect(order.phone).to eq("0400 000 000")
+      expect(order.phone).to eq("0400000000")
     end
 
     it "computes the total from the line items" do
@@ -36,6 +36,30 @@ RSpec.describe Order, :db do
       older.update!(created_at: Time.now - 86_400)
 
       expect(Order.recent.to_a).to eq([newer, older])
+    end
+  end
+
+  describe "#phone=" do
+    it "removes spaces and hyphens" do
+      order = Order.new(phone: "0400-123 456")
+
+      expect(order.phone).to eq("0400123456")
+    end
+  end
+
+  describe "phone validation" do
+    it "accepts a phone with ten digits after cleaning" do
+      order = Order.new(name: "Elle", phone: "0400 123 456")
+
+      expect(order).to be_valid
+    end
+
+    context "when the phone does not have ten digits" do
+      it "is invalid" do
+        order = Order.new(name: "Elle", phone: "12345")
+
+        expect(order).not_to be_valid
+      end
     end
   end
 

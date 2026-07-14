@@ -103,30 +103,58 @@
     var form = document.querySelector(".order-form");
     if (!form) return;
 
+    var PHONE_LENGTH = 10;
     var rows = Array.prototype.slice.call(form.querySelectorAll(".bread-row"));
     var totalEl = form.querySelector(".order-total__amount");
+    var errorEl = form.querySelector(".order-form__error");
     var nameInput = form.querySelector('input[name="name"]');
     var phoneInput = form.querySelector('input[name="phone"]');
-    var submit = form.querySelector(".order-submit");
+
+    // Show errors once a field has been left or the form has been submitted,
+    // or immediately when the server rendered an error we are correcting.
+    var touched = errorEl.textContent.trim() !== "";
 
     function qtyOf(row) {
       return parseInt(row.querySelector('input[type="hidden"]').value, 10) || 0;
     }
 
-    function refresh() {
+    function hasItems() {
+      return rows.some(function (row) {
+        return qtyOf(row) > 0;
+      });
+    }
+
+    function updateTotal() {
       var total = 0;
-      var hasItems = false;
       rows.forEach(function (row) {
-        var qty = qtyOf(row);
-        total += qty * (parseFloat(row.getAttribute("data-price")) || 0);
-        if (qty > 0) hasItems = true;
+        total += qtyOf(row) * (parseFloat(row.getAttribute("data-price")) || 0);
       });
       totalEl.textContent = "$" + total.toFixed(2);
-      submit.disabled = !(
-        hasItems &&
-        nameInput.value.trim() !== "" &&
-        phoneInput.value.trim() !== ""
-      );
+    }
+
+    function errors() {
+      var messages = [];
+      if (!hasItems()) {
+        messages.push("Please choose at least one loaf.");
+      }
+      if (nameInput.value.trim() === "") {
+        messages.push("Please enter your name.");
+      }
+      if (phoneInput.value.replace(/\D/g, "").length !== PHONE_LENGTH) {
+        messages.push("Please enter a 10-digit phone number.");
+      }
+      return messages;
+    }
+
+    function showErrors() {
+      errorEl.textContent = errors().join(" ");
+    }
+
+    function update() {
+      updateTotal();
+      if (touched) {
+        showErrors();
+      }
     }
 
     rows.forEach(function (row) {
@@ -138,14 +166,28 @@
           var next = Math.max(0, qtyOf(row) + step);
           hidden.value = next;
           qtyEl.textContent = next;
-          refresh();
+          update();
         });
       });
     });
 
-    nameInput.addEventListener("input", refresh);
-    phoneInput.addEventListener("input", refresh);
-    refresh();
+    [nameInput, phoneInput].forEach(function (input) {
+      input.addEventListener("input", update);
+      input.addEventListener("blur", function () {
+        touched = true;
+        update();
+      });
+    });
+
+    form.addEventListener("submit", function (event) {
+      touched = true;
+      if (errors().length > 0) {
+        event.preventDefault();
+        showErrors();
+      }
+    });
+
+    updateTotal();
   }
 
   function initWeeklySelection() {
