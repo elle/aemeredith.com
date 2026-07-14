@@ -611,6 +611,20 @@ a {
 }
 
 // Elle Bread
+.bread-announcement {
+  margin-top: 32px;
+  padding: 16px 20px;
+  background: $red;
+  color: $white;
+}
+
+.bread-announcement__text {
+  margin: 0;
+  max-width: 640px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 .bread-hero {
   padding: 56px 0 40px;
   border-bottom: 1px solid $gray-dd;
@@ -847,6 +861,50 @@ a {
   &:hover,
   &:focus {
     color: $red;
+  }
+}
+
+.announcement-form__hint {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: $gray-99;
+}
+
+.announcement-form__input {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  padding: 12px 14px;
+  background: $white;
+  border: 1px solid $gray-cc;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: vertical;
+
+  &:focus {
+    outline: 2px solid $red;
+    outline-offset: 1px;
+  }
+}
+
+.announcement-form__save {
+  margin-top: 24px;
+  padding: 14px 24px;
+  background: $ink;
+  color: $white;
+  border: none;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background: $red;
   }
 }
 

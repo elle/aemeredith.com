@@ -9,6 +9,7 @@ if defined?(Dotenv)
 end
 
 require "sinatra/activerecord"
+require_relative "models/announcement"
 require_relative "models/bread_day"
 require_relative "models/post"
 require_relative "models/order"
@@ -54,6 +55,10 @@ WEEKLY_BREAD_IDS = BREADS.first(3).map { |bread| bread["id"] }.freeze
 helpers do
   def admin?
     session[:admin] == true
+  end
+
+  def announcement
+    Announcement.current
   end
 
   def bread_day_heading
@@ -225,6 +230,12 @@ get "/bread/admin" do
     orders: Order.recent.includes(:order_items),
     selected_ids: WeeklySelection.current_bread_ids,
   }
+end
+
+put "/bread/admin/announcement" do
+  require_admin!
+  Announcement.set(params[:message])
+  redirect "/bread/admin"
 end
 
 put "/bread/admin/weekly-selection" do

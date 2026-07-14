@@ -15,6 +15,17 @@ RSpec.describe "Elle Bread routes" do
       expect(last_response).to be_ok
       expect(last_response.body).to include("Breads this")
     end
+
+    context "when an announcement is set" do
+      it "shows it at the top", :db do
+        allow(WeeklySelection).to receive(:current_bread_ids).and_return([])
+        Announcement.set("Bakery closed next week")
+
+        get "/bread"
+
+        expect(last_response.body).to include("Bakery closed next week")
+      end
+    end
   end
 
   describe "POST /bread/orders" do
@@ -93,6 +104,17 @@ RSpec.describe "Elle Bread routes" do
 
         expect(last_response.status).to eq(401)
         expect(last_response.body).to include("Incorrect password")
+      end
+    end
+  end
+
+  describe "PUT /bread/admin/announcement" do
+    context "when not logged in" do
+      it "redirects to the login page" do
+        put "/bread/admin/announcement", message: "Fresh loaves"
+
+        expect(last_response).to be_redirect
+        expect(last_response.location).to end_with("/bread/admin/login")
       end
     end
   end

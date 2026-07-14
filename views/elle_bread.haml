@@ -1,4 +1,8 @@
 %main.site-main
+  - current_announcement = announcement
+  - if current_announcement
+    .bread-announcement{role: "status"}
+      %p.bread-announcement__text= current_announcement.message
   %section.section.bread-hero
     .section__number 01
     .section__body

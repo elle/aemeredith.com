@@ -9,8 +9,18 @@
           %input{type: "hidden", name: "_method", value: "delete"}
           %button.admin__logout{type: "submit"} Log out
 
-  %section.section.admin-weekly
+  %section.section.admin-announcement
     .section__number 03
+    .section__body
+      %h2.section__label Announcement
+      %form.announcement-form{action: "/bread/admin/announcement", method: "post"}
+        %input{type: "hidden", name: "_method", value: "put"}
+        %p.announcement-form__hint Shown at the top of the order page. Leave blank to remove it.
+        %textarea.announcement-form__input{name: "message", rows: 3}= announcement&.message
+        %button.announcement-form__save{type: "submit"} Save announcement
+
+  %section.section.admin-weekly
+    .section__number 04
     .section__body
       %h2.section__label This week’s 3 breads
       %form.weekly-form{action: "/bread/admin/weekly-selection", method: "post"}
@@ -24,7 +34,7 @@
         %button.weekly-form__save{type: "submit"} Save selection
 
   %section.section.admin-orders
-    .section__number 04
+    .section__number 05
     .section__body
       %h2.section__label Order history
       - if orders.any?
