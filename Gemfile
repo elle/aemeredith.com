@@ -13,8 +13,12 @@ gem "sass"
 gem "sinatra"
 gem "sinatra-activerecord"
 
+group :development, :test do
+  gem "dotenv"
+end
+
 group :development do
-  gem "foreman"
+  gem "foreman", require: false
 end
 
 group :test do

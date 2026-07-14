@@ -26,6 +26,7 @@ GEM
     connection_pool (3.0.2)
     date (3.5.1)
     diff-lcs (1.6.2)
+    dotenv (3.2.0)
     drb (2.2.3)
     ffi (1.17.2)
     ffi (1.17.2-aarch64-linux-gnu)
@@ -152,6 +153,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  dotenv
   foreman
   haml
   kramdown

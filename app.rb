@@ -1,6 +1,13 @@
 require "bundler"
 require "yaml"
-Bundler.require(:default)
+
+ENV["RACK_ENV"] ||= "development"
+Bundler.require(:default, ENV["RACK_ENV"].to_sym)
+
+if defined?(Dotenv)
+  Dotenv.load
+end
+
 require "sinatra/activerecord"
 require_relative "models/post"
 require_relative "models/order"

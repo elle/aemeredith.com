@@ -30,6 +30,15 @@ The test database is set up the same way with `RACK_ENV=test`:
 RACK_ENV=test bundle exec rake db:create db:migrate
 ```
 
+Copy the environment template and fill in local values:
+
+```sh
+cp .env.example .env
+```
+
+In development and test, [dotenv](https://github.com/bkeepers/dotenv) loads `.env`
+automatically. `.env` is git-ignored; production reads real environment variables.
+
 ## Running
 
 ```sh
