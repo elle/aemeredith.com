@@ -27,6 +27,7 @@
         - total = breads.sum { |bread| quantities.fetch(bread["id"], 0).to_i * bread["price"] }
         %h2.section__label= bread_day_heading
         %form.order-form{action: "/bread/orders", method: "post"}
+          %input{type: "hidden", name: "authenticity_token", value: csrf_token}
           - breads.each do |bread|
             - quantity = quantities.fetch(bread["id"], 0).to_i
             .bread-row{data: { price: bread["price"] }}

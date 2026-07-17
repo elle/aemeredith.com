@@ -6,6 +6,7 @@
       - if error
         %p.order-form__error= error
       %form.admin-login__form{action: "/bread/admin/session", method: "post"}
+        %input{type: "hidden", name: "authenticity_token", value: csrf_token}
         %input.order-input{type: "password", name: "password", placeholder: "Password", autofocus: true}
         %button.order-submit{type: "submit"} Log in
       %a.bread-admin-link{href: "/bread"} ← Back to order form

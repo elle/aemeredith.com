@@ -26,6 +26,12 @@ configure do
   enable :sessions
 end
 
+# Guard the forms with CSRF tokens everywhere except the test suite, which
+# follows the convention of disabling forgery protection for request specs.
+configure :production, :development do
+  use Rack::Protection::AuthenticityToken
+end
+
 configure :production do
   Mail.defaults do
     delivery_method :smtp,
@@ -69,6 +75,10 @@ helpers do
     expected = ENV["ADMIN_PASSWORD"].to_s
 
     !expected.empty? && Rack::Utils.secure_compare(expected, password.to_s)
+  end
+
+  def csrf_token
+    Rack::Protection::AuthenticityToken.token(session)
   end
 
   def money(amount)

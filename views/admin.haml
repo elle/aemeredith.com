@@ -7,6 +7,7 @@
         %a.admin__link{href: "/bread"} View public form →
         %form.admin__logout-form{action: "/bread/admin/session", method: "post"}
           %input{type: "hidden", name: "_method", value: "delete"}
+          %input{type: "hidden", name: "authenticity_token", value: csrf_token}
           %button.admin__logout{type: "submit"} Log out
 
   %section.section.admin-announcement
@@ -15,6 +16,7 @@
       %h2.section__label Announcement
       %form.announcement-form{action: "/bread/admin/announcement", method: "post"}
         %input{type: "hidden", name: "_method", value: "put"}
+        %input{type: "hidden", name: "authenticity_token", value: csrf_token}
         %p.announcement-form__hint Shown at the top of the order page. Leave blank to remove it.
         %textarea.announcement-form__input{name: "message", rows: 3}= announcement&.message
         %button.announcement-form__save{type: "submit"} Save announcement
@@ -25,6 +27,7 @@
       %h2.section__label This week’s 3 breads
       %form.weekly-form{action: "/bread/admin/weekly-selection", method: "post"}
         %input{type: "hidden", name: "_method", value: "put"}
+        %input{type: "hidden", name: "authenticity_token", value: csrf_token}
         %p.weekly-form__hint= "#{selected_ids.length} of 3 selected"
         - breads.each do |bread|
           %label.weekly-option
