@@ -187,8 +187,7 @@ get "/articles/:slug" do
     @title = post.title
     haml :article, locals: { post: post }
   else
-    status 404
-    haml :not_found
+    halt 404
   end
 end
 
@@ -299,4 +298,9 @@ put "/bread/admin/weekly-selection" do
   chosen = Array(params[:bread_ids]).select { |id| catalog_ids.include?(id) }
   WeeklySelection.replace(chosen)
   redirect "/bread/admin"
+end
+
+not_found do
+  @title = "Not found"
+  haml :not_found
 end
