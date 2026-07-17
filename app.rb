@@ -9,6 +9,12 @@ if defined?(Dotenv)
 end
 
 require "sinatra/activerecord"
+
+# The bakery's week and bread day are local dates, so pin the application to
+# the bakery's zone rather than the server's clock (which is UTC in production).
+Time.zone = ENV.fetch("TIME_ZONE", "Australia/Melbourne")
+ActiveRecord::Base.time_zone_aware_attributes = true
+
 require_relative "models/announcement"
 require_relative "models/bread_day"
 require_relative "models/post"
