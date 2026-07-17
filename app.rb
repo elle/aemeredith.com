@@ -54,8 +54,39 @@ configure :development do
   Mail.defaults { delivery_method :logger }
 end
 
+# Rate limiting to blunt spam orders and admin password guessing.
+ORDER_RATE_LIMIT = 5
+ORDER_RATE_PERIOD = 60
+LOGIN_RATE_LIMIT = 10
+LOGIN_RATE_PERIOD = 300
+
+Rack::Attack.cache.store = ActiveSupport::Cache::MemoryStore.new
+
+Rack::Attack.throttle(
+  "orders/ip",
+  limit: ORDER_RATE_LIMIT,
+  period: ORDER_RATE_PERIOD
+) do |request|
+  if request.post? && request.path == "/bread/orders"
+    request.ip
+  end
+end
+
+Rack::Attack.throttle(
+  "admin-login/ip",
+  limit: LOGIN_RATE_LIMIT,
+  period: LOGIN_RATE_PERIOD
+) do |request|
+  if request.post? && request.path == "/bread/admin/session"
+    request.ip
+  end
+end
+
+use Rack::Attack
+
 configure :test do
   Mail.defaults { delivery_method :test }
+  Rack::Attack.enabled = false
 end
 
 TALKS = YAML.load_file("data/talks.yml").freeze
@@ -85,6 +116,10 @@ helpers do
 
   def csrf_token
     Rack::Protection::AuthenticityToken.token(session)
+  end
+
+  def honeypot_filled?
+    !params[:email].to_s.strip.empty?
   end
 
   def money(amount)
@@ -179,7 +214,16 @@ post "/bread/orders" do
     phone: params[:phone]
   )
 
-  if items.any? && order.save
+  if honeypot_filled?
+    haml :bread, locals: {
+      breads: breads,
+      error: nil,
+      name: nil,
+      order: order,
+      phone: nil,
+      quantities: {},
+    }
+  elsif items.any? && order.save
     begin
       OrderNotification.deliver(order)
     rescue StandardError => error

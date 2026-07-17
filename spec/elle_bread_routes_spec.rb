@@ -68,6 +68,46 @@ RSpec.describe "Elle Bread routes" do
         expect(last_response.body).to include("10-digit")
       end
     end
+
+    context "when the honeypot field is filled" do
+      it "silently drops the order", :db do
+        allow(WeeklySelection).to receive(:current_bread_ids).and_return([])
+
+        expect do
+          post "/bread/orders",
+            email: "bot@example.com",
+            items: { first_bread_id => "1" },
+            name: "Elle",
+            phone: "0400 123 456"
+        end.not_to change(Order, :count)
+
+        expect(last_response).to be_ok
+      end
+    end
+  end
+
+  describe "rate limiting" do
+    around do |example|
+      Rack::Attack.enabled = true
+      Rack::Attack.cache.store.clear
+      example.run
+      Rack::Attack.cache.store.clear
+      Rack::Attack.enabled = false
+    end
+
+    it "throttles repeated order submissions from one IP", :db do
+      allow(WeeklySelection).to receive(:current_bread_ids).and_return([])
+      allow(OrderNotification).to receive(:deliver)
+
+      (ORDER_RATE_LIMIT + 1).times do
+        post "/bread/orders",
+          items: { first_bread_id => "1" },
+          name: "Elle",
+          phone: "0400 123 456"
+      end
+
+      expect(last_response.status).to eq(429)
+    end
   end
 
   describe "GET /bread/admin" do

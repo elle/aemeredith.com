@@ -84,6 +84,8 @@ GEM
     puma (7.1.0)
       nio4r (~> 2.0)
     rack (3.2.4)
+    rack-attack (6.8.0)
+      rack (>= 1.0, < 4)
     rack-protection (4.2.1)
       base64 (>= 0.1.0)
       logger (>= 1.6.0)
@@ -160,6 +162,7 @@ DEPENDENCIES
   mail
   pg
   puma
+  rack-attack
   rack-test
   rackup
   rake
