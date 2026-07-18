@@ -209,7 +209,7 @@ A culture of healthy feedback won't appear overnight,
 no matter how often you deliver feedback.
 Foster that culture by teaching others
 how to deliver feedback in a healthy and impactful way.
-</br>
+<br />
 <cite>
   Lara Hogan
 </cite>

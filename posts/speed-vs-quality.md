@@ -76,7 +76,7 @@ A different way to explain technical debt is using a restaurant metaphor:
   but never reorganizing it to reflect your understanding of those features,
   then eventually that program simply does not contain any understanding,
   and all efforts to work on it take longer and longer.
-</br>
+<br />
 <cite>
   Ward Cunningham
 </cite>

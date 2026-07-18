@@ -70,7 +70,7 @@ Sponsoring is something  that as a manager we should be actively doing.
 <blockquote>
   Remember that members of under-represented groups are typically
   over mentored, but under sponsored.
-</br>
+<br />
 <cite>
   Lara Hogan
 </cite>
