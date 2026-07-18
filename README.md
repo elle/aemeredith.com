@@ -42,10 +42,13 @@ automatically. `.env` is git-ignored; production reads real environment variable
 ## Running
 
 ```sh
-bundle exec foreman start   # uses the Procfile
+bundle exec foreman start -f Procfile.dev   # web process only
 # or
 bundle exec ruby app.rb
 ```
+
+The root `Procfile` is for Heroku and includes a `release` migration step,
+so use `Procfile.dev` locally to run just the web process.
 
 ## Content
 
