@@ -15,4 +15,4 @@ Reading this book made me realise that we follow some of its suggested technique
 
 Traditional education focuses on teaching, not learning. It incorrectly assumes that for every ounce of teaching there is an ounce of learning by those who are taught. Remember that the objective of education is teaching and educating. At Blackmill, we believe in [continuous learning and growth](https://blackmill.co/purpose) and thus we continue to fine-tune our workshops based on feedback we receive from participants.
 
-![blooms-revised-taxonomy.jpg](/resources/20220414-learning-vs-education.jpg)
+![blooms-revised-taxonomy.jpg](/images/20220414-learning-vs-education.jpg)

@@ -4,7 +4,7 @@ date: 2022-07-22
 description: Many people in the dev community experience or have experienced imposter syndrome at some point, including me. Self-doubt keeps us from seeing ourselves as we truly are. However, we can control our perceptions and reframe our thinking.
 ---
 # On imposter syndrome
-![On imposter syndrome](/resources/imposter.jpg)
+![On imposter syndrome](/images/imposter.jpg)
 
 Almost everyone I know in the dev community experiences or
 has experienced imposter syndrome at some point, including me.

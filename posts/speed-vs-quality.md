@@ -5,7 +5,7 @@ description: We cannot have everything we want at once, so how do we reconcile s
 ---
 # Speed vs quality and technical debt
 
-![Project management triangle](/resources/project-management-triangle.png)
+![Project management triangle](/images/project-management-triangle.png)
 
 ## Project management triangle
 The project management triangle is
@@ -69,7 +69,7 @@ A different way to explain technical debt is using a restaurant metaphor:
 </blockquote>
 
 
-![Technical debt kitchen example](/resources/technical-debt.jpg)
+![Technical debt kitchen example](/images/technical-debt.jpg)
 
 <blockquote>
   If you develop a program for a long period of time by only adding features,

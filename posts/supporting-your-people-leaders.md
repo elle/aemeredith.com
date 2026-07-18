@@ -5,7 +5,7 @@ description: How to effectively support people leaders at scale
 ---
 # Supporting your people leaders
 ![People helping each other climb a steep slope, silhouetted against a
-beautiful sky](/resources/supporting-your-people-leaders.png)
+beautiful sky](/images/supporting-your-people-leaders.png)
 
 High growth companies often struggle because
 their emerging people leaders don’t get the support they need.

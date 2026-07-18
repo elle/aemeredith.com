@@ -5,7 +5,7 @@ description: Let's explore the concept of personal branding, its importance, and
 ---
 # The power of personal branding and visibility
 
-![A photograph showing a sea of black umbrellas, all the same, except one is red](/resources/power-of-personal-brand.jpg)
+![A photograph showing a sea of black umbrellas, all the same, except one is red](/images/power-of-personal-brand.jpg)
 
 A personal brand is not just about having a good reputation.
 It is about creating an intentional, authentic, and visible professional image that sets you apart.

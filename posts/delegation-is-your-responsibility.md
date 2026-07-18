@@ -4,7 +4,7 @@ date: 2025-11-27
 description: Thinking "it will be quicker if I do it myself" is a warning sign that you've become your organisation's biggest bottleneck
 ---
 # Delegation is your responsibility, not a privilege
-![How to accept delegation](/resources/delegation-is-your-responsibility.jpg)
+![How to accept delegation](/images/delegation-is-your-responsibility.jpg)
 
 We've all been there.
 The project deadline looms, your inbox overflows, and yet you find yourself saying:

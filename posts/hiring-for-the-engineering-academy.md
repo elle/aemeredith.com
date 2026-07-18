@@ -25,11 +25,11 @@ We ran the job description through [Textio](https://textio.com) to minimise how 
 
 > Language is culture. You use words constantly: emailing, writing, texting. Every word you choose reveals who you are. The way you ask a question determines who will answer you. The way you present a job changes who can see themselves in it. Everything about your company culture is built on language.
 
-![How we work, our values, and culture and perks](/resources/20190924-our-values.png)
+![How we work, our values, and culture and perks](/images/20190924-our-values.png)
 
 When looking for work, people sometimes lose track that this process should be a two-way conversation and agreement between the workplace and the potential candidate. The interview process can be used for the candidate to decide which company to work with, in the same way the company can choose which candidate to employ. We listed Qantas Hotels' values so that candidates were able to decide from the get-go whether they were a fit for the culture and whether they wanted to work with us.
 
-![Who we are looking for](/resources/20190924-who-we-are-looking-for.png)
+![Who we are looking for](/images/20190924-who-we-are-looking-for.png)
 
 The next section described who we were looking for. One of the key foundations of a good job description is to define exactly that, what you are looking for. That definition should not be too wordy, long, or restrictive. It should also not be tied too closely to existing technologies. Technologies come and go. It is more important to look for someone that can adapt and learn, rather than someone who knows the current stack. I believe that knowledge is not enough, and that success in life depends on both knowledge and character. Especially since we were hiring for an apprenticeship program where successful candidates would learn on the go, it was more important for us to concentrate on desired personality characteristics.
 
@@ -51,7 +51,7 @@ The application process included seven steps:
 1. Reference checks and send out letters of offer
 1. Program starts
 
-![How the application process works](/resources/20190924-how-the-process-works.png)
+![How the application process works](/images/20190924-how-the-process-works.png)
 
 ### Application review
 
@@ -66,7 +66,7 @@ For their application, we asked candidates to send us their résumé, answers to
 
 Being mindful of people with time constraints, we asked for an existing code sample, something that the candidate would be proud to show off. If they did not have their own sample, we offered two small [coding challenges](https://gist.github.com/elle/b9739bc21eb348916a60622f3fb6e2e4) to choose from. Applicants could submit either or both.
 
-![Rubric example](/resources/20190924-rubric-example.png)
+![Rubric example](/images/20190924-rubric-example.png)
 
 I also created a rubric to rate answers to the four questions. It defined what average, good, and great answers looked like.
 

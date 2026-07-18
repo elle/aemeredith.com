@@ -4,7 +4,7 @@ date: 2022-11-09
 description: A disagreement in opinions can be a healthy debate. Instead of fearing the differences, we should be curious.
 ---
 # How do we heal polarisation?
-![Polarisation](/resources/polarisation.jpg)
+![Polarisation](/images/polarisation.jpg)
 
 A disagreement in opinions can be a healthy debate.
 A debate becomes unhealthy when we stop thinking the other idea is wrong,

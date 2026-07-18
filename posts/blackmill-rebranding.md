@@ -36,14 +36,14 @@ Incremental improvements guided the design of the new logo,
 with a ruler and incremental marks that gradually increase in distance
 as your eye moves towards the right &mdash; subtly indicating progress and growth.
 
-![Logos comparison](/resources/20190702-logos-comparison.png#bg-white)
+![Logos comparison](/images/20190702-logos-comparison.png#bg-white)
 
 We also wanted to incorporate incremental and continuous improvement in our branding,
 but the sentences that we came up with were way too long to fit on a business card,
 until, with Lucy's help, we settled on the simplicity of: "Incrementally better".
 
 ![New logo with
-tagline](/resources/20190702-blackmill-logo-tagline.png#bg-white)
+tagline](/images/20190702-blackmill-logo-tagline.png#bg-white)
 
 It also works really beautifully with our new avatar, Sean.
 The other day somebody called Seanie a Canadian Southparkian,
@@ -62,7 +62,7 @@ and various social media websites.
 This exercise was super useful to gauge how the new logo and avatar work on various mediums.
 She also mocked the new logo with different backgrounds and variations.
 
-![Logo and avatars mockups](/resources/20190702-logo-avatar-mocks.png)
+![Logo and avatars mockups](/images/20190702-logo-avatar-mocks.png)
 
 With the business cards, we decided to go with Moo UK cards sizes,
 which is closer to standard AU business card sizes.
@@ -77,7 +77,7 @@ was just so much (incrementally!) better.
 We wanted to make the business card stand out,
 and decided to print the cards with a raised spot gloss on the logo and Sean.
 
-![Business back with defined raised spot gloss area](/resources/20190702-raised-spot-gloss.png)
+![Business back with defined raised spot gloss area](/images/20190702-raised-spot-gloss.png)
 
 We didn't want to use traditional job titles on the cards.
 They presume too much common understanding of a role.
@@ -87,7 +87,7 @@ once again we could only come up with sentences that were too long.
 However, trying to distill the longer sentence to its essence,
 we ended up with: "Thoughtful engineering practices".
 
-![New business cards](/resources/20190702-cards.jpg)
+![New business cards](/images/20190702-cards.jpg)
 
 We also updated our website with the new logo, avatar, colour scheme, and
 selected typefaces. Go ahead and check it out [blackmill.co](http://blackmill.co/)

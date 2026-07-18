@@ -4,7 +4,7 @@ date: 2024-04-11
 description: About the challenges women face when striving for promotions and senior leadership roles, gender differences in executive positions, and what can be done about it.
 ---
 # Role congruity theory of prejudice towards female leaders
-![A woman holding a mug with a label saying: like a boss](/resources/like-a-boss.jpg)
+![A woman holding a mug with a label saying: like a boss](/images/like-a-boss.jpg)
 
 How do I get a promotion? This is a topic that crops up in our coaching practice and workshops.
 Women face barriers to career advancement in senior leadership roles,

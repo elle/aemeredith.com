@@ -19,7 +19,7 @@ On [April 9, 2017, United Airlines flight 3411](https://en.wikipedia.org/wiki/Un
 
 How did he ended up being the unlucky passenger? An algorithm that looked at the cost of the ticket, time checking in, was he part of a rewards system, and more. That algorithm decided that Dr. Dao was one of the least valuable customers on the flight at the time. Does this mean it was a bad algorithm?  Cathy O’Neil says: "[every algorithm reflects the subjective choices of its human designer](https://99percentinvisible.org/episode/the-age-of-the-algorithm/)".
 
- ![Elle presenting at Keep Ruby Weird, with a slide showing the above quote from O'neill](/resources/20210506-choices-203.jpg) 
+ ![Elle presenting at Keep Ruby Weird, with a slide showing the above quote from O'neill](/images/20210506-choices-203.jpg) 
 
 When asked for advice on finding a place to work, the first question I ask the person is: what do you value?
 
