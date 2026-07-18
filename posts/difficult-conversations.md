@@ -98,7 +98,7 @@ we are ready to initiate an effective confrontation.
 
 We already talked about the conditions
 that are paramount for a productive feedback session in
-[Giving Feedback](/resources/giving-feedback),
+[Giving Feedback](/articles/giving-feedback),
 for example, thinking
 *"my version of the issue is not the only one."*
 

@@ -5,9 +5,9 @@ description: The hiring process for Qantas Hotels engineering academy in detail
 ---
 # Hiring for the Engineering Academy
 
-Last year I wrote about [running an apprenticeship program for Hooroo](/resources/first-pilot-of-an-engineering-academy-notes-and-after-thoughts) (now Qantas Hotels, and will be referred to using that name). The feedback I received on that article from [Stu Liston](https://twitter.com/stuliston), the engineering manager at the time, was that there was so much more to the process of developing the program, and a lot of thought had been put into the choices and decisions we made, none of which had made it into that first article. In this article, I elaborate on the hiring process we used for this apprenticeship program. 
+Last year I wrote about [running an apprenticeship program for Hooroo](/articles/first-pilot-of-an-engineering-academy-notes-and-after-thoughts) (now Qantas Hotels, and will be referred to using that name). The feedback I received on that article from [Stu Liston](https://twitter.com/stuliston), the engineering manager at the time, was that there was so much more to the process of developing the program, and a lot of thought had been put into the choices and decisions we made, none of which had made it into that first article. In this article, I elaborate on the hiring process we used for this apprenticeship program. 
 
-This is also a follow up to last week's article on [starting your own apprenticeship program](/resources/start-your-own-apprenticeship-program).
+This is also a follow up to last week's article on [starting your own apprenticeship program](/articles/start-your-own-apprenticeship-program).
 
 ## Job description
 

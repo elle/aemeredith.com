@@ -56,7 +56,7 @@ and is equated with ideas of locus of control, independence, and individualism.
 Competence is the level of feeling that my actions contribute to the result,
 rather than feeling helpless.
 Lastly relatedness is about feeling that
-[I belong, which is important to team culture and organisational performance](/resources/why-belonging-is-crucial-in-team-culture-and-organisational-performance).
+[I belong, which is important to team culture and organisational performance](https://blackmill.co/resources/why-belonging-is-crucial-in-team-culture-and-organisational-performance).
 
 ## Leadership styles
 

@@ -94,7 +94,7 @@ you will find wonderful resources
 and a great [Ruby community here](https://ruby.org.au/).
 
 UPDATE: I also wrote an article on
-[how to get started with web development](/resources/so-you-want-to-get-into-web-dev).
+[how to get started with web development](/articles/so-you-want-to-get-into-web-dev).
 
 If you're responsible for a technology team or company and would like
 to chat about how we can help you, [get in touch](mailto:gday@blackmill.co).
