@@ -27,6 +27,17 @@ RSpec.describe Order, :db do
 
       expect(order.order_items.map(&:bread_name)).to eq(["Country sourdough"])
     end
+
+    it "stores the email when given" do
+      order = Order.place(
+        email: "elle@example.com",
+        items: [line],
+        name: "Elle",
+        phone: "0400 000 000"
+      )
+
+      expect(order.email).to eq("elle@example.com")
+    end
   end
 
   describe ".recent" do
@@ -57,6 +68,44 @@ RSpec.describe Order, :db do
     context "when the phone does not have ten digits" do
       it "is invalid" do
         order = Order.new(name: "Elle", phone: "12345")
+
+        expect(order).not_to be_valid
+      end
+    end
+  end
+
+  describe "#email=" do
+    it "strips surrounding whitespace" do
+      order = Order.new(email: "  elle@example.com  ")
+
+      expect(order.email).to eq("elle@example.com")
+    end
+  end
+
+  describe "email validation" do
+    it "is valid without an email" do
+      order = Order.new(name: "Elle", phone: "0400 123 456")
+
+      expect(order).to be_valid
+    end
+
+    it "accepts a well-formed email" do
+      order = Order.new(
+        email: "elle@example.com",
+        name: "Elle",
+        phone: "0400 123 456"
+      )
+
+      expect(order).to be_valid
+    end
+
+    context "when the email is present but malformed" do
+      it "is invalid" do
+        order = Order.new(
+          email: "not-an-email",
+          name: "Elle",
+          phone: "0400 123 456"
+        )
 
         expect(order).not_to be_valid
       end

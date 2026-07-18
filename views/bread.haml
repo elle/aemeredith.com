@@ -30,8 +30,8 @@
         %form.order-form{action: "/bread/orders", method: "post"}
           %input{type: "hidden", name: "authenticity_token", value: csrf_token}
           .order-hp{"aria-hidden": "true"}
-            %label{for: "order-contact"} Leave this field blank
-            %input#order-contact{type: "text", name: "email", tabindex: "-1", autocomplete: "off"}
+            %label{for: "order-website"} Leave this field blank
+            %input#order-website{type: "text", name: "website", tabindex: "-1", autocomplete: "off"}
           - breads.each do |bread|
             - quantity = quantities.fetch(bread["id"], 0).to_i
             .bread-row{data: { price: bread["price"] }}
@@ -50,4 +50,5 @@
           .order-fields
             %input.order-input{type: "text", name: "name", placeholder: "Your name", value: name}
             %input.order-input{type: "tel", name: "phone", placeholder: "Phone number", value: phone}
+            %input.order-input{type: "email", name: "email", placeholder: "Email (optional)", value: email}
             %button.order-submit{type: "submit"} Place order

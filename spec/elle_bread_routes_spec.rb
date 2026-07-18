@@ -69,16 +69,31 @@ RSpec.describe "Elle Bread routes" do
       end
     end
 
+    context "when an email is provided" do
+      it "stores it on the order", :db do
+        allow(WeeklySelection).to receive(:current_bread_ids).and_return([])
+        allow(OrderNotification).to receive(:deliver)
+
+        post "/bread/orders",
+          email: "customer@example.com",
+          items: { first_bread_id => "1" },
+          name: "Elle",
+          phone: "0400 123 456"
+
+        expect(Order.last.email).to eq("customer@example.com")
+      end
+    end
+
     context "when the honeypot field is filled" do
       it "silently drops the order", :db do
         allow(WeeklySelection).to receive(:current_bread_ids).and_return([])
 
         expect do
           post "/bread/orders",
-            email: "bot@example.com",
             items: { first_bread_id => "1" },
             name: "Elle",
-            phone: "0400 123 456"
+            phone: "0400 123 456",
+            website: "spam"
         end.not_to change(Order, :count)
 
         expect(last_response).to be_ok

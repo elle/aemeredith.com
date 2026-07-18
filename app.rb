@@ -119,7 +119,7 @@ helpers do
   end
 
   def honeypot_filled?
-    !params[:email].to_s.strip.empty?
+    !params[:website].to_s.strip.empty?
   end
 
   def money(amount)
@@ -195,6 +195,7 @@ get "/bread" do
   @title = "Elle Bread"
   haml :bread, locals: {
     breads: weekly_breads,
+    email: nil,
     error: nil,
     name: nil,
     order: nil,
@@ -208,6 +209,7 @@ post "/bread/orders" do
   breads = weekly_breads
   items = ordered_items(breads, params[:items])
   order = Order.build(
+    email: params[:email],
     items: items,
     name: params[:name],
     phone: params[:phone]
@@ -216,6 +218,7 @@ post "/bread/orders" do
   if honeypot_filled?
     haml :bread, locals: {
       breads: breads,
+      email: nil,
       error: nil,
       name: nil,
       order: order,
@@ -231,6 +234,7 @@ post "/bread/orders" do
 
     haml :bread, locals: {
       breads: breads,
+      email: nil,
       error: nil,
       name: nil,
       order: order,
@@ -241,6 +245,7 @@ post "/bread/orders" do
     status 422
     haml :bread, locals: {
       breads: breads,
+      email: params[:email],
       error: order_error(order, items),
       name: params[:name],
       order: nil,

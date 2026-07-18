@@ -109,6 +109,7 @@
     var errorEl = form.querySelector(".order-form__error");
     var nameInput = form.querySelector('input[name="name"]');
     var phoneInput = form.querySelector('input[name="phone"]');
+    var emailInput = form.querySelector('input[name="email"]');
 
     // Show errors once a field has been left or the form has been submitted,
     // or immediately when the server rendered an error we are correcting.
@@ -143,6 +144,10 @@
       if (phoneInput.value.replace(/\D/g, "").length !== PHONE_LENGTH) {
         messages.push("Please enter a 10-digit phone number.");
       }
+      var email = emailInput.value.trim();
+      if (email !== "" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        messages.push("Please enter a valid email address.");
+      }
       return messages;
     }
 
@@ -171,7 +176,7 @@
       });
     });
 
-    [nameInput, phoneInput].forEach(function (input) {
+    [nameInput, phoneInput, emailInput].forEach(function (input) {
       function validateField() {
         touched = true;
         update();

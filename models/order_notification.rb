@@ -24,7 +24,10 @@ class OrderNotification
 
   def body
     <<~BODY
-      New order from #{order.name} (#{order.phone}).
+      New order from #{order.name}.
+
+      Phone: #{order.phone}
+      Email: #{customer_email}
 
       #{line_items}
 
@@ -38,11 +41,25 @@ class OrderNotification
     text = body
     subject_line = "New Elle Bread order from #{order.name}"
 
-    Mail.new do
+    message = Mail.new do
       from sender
       to recipient
       subject subject_line
       body text
+    end
+
+    unless order.email.to_s.strip.empty?
+      message.reply_to = order.email
+    end
+
+    message
+  end
+
+  def customer_email
+    if order.email.to_s.strip.empty?
+      "(not provided)"
+    else
+      order.email
     end
   end
 

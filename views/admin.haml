@@ -48,6 +48,7 @@
                 %th Date
                 %th Name
                 %th Phone
+                %th Email
                 %th Order
                 %th.orders-table__amount Total
             %tbody
@@ -56,6 +57,7 @@
                   %td.orders-table__nowrap= order.created_at.strftime("%b %-d, %Y")
                   %td= order.name
                   %td.orders-table__nowrap= order.phone
+                  %td= order.email
                   %td.orders-table__summary= order.order_items.map { |item| "#{item.quantity}× #{item.bread_name}" }.join(", ")
                   %td.orders-table__amount= money(order.total)
       - else
