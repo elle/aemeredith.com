@@ -85,7 +85,7 @@ And online shorter courses where you pay per course:
 
 - [Code Academy]
 - [Udemy]
-- [Coursera]: mostly free, unless you wish to get a certificate
+- [Coursera]
 
 [GitHub] offers other tools and resources to help you get started,
 which are available at [https://education.github.com](https://education.github.com).
