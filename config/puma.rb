@@ -7,7 +7,15 @@ environment ENV.fetch("RACK_ENV", "development")
 workers_count = Integer(ENV.fetch("WEB_CONCURRENCY", 0))
 workers workers_count
 
-# In clustered mode, preload the app and reconnect Active Record per worker.
+# Run Que's worker inside the web process so no separate worker dyno is needed.
+# If the process is dropped, its advisory locks release and any in-flight job
+# is picked up again.
+def start_embedded_que
+  worker_count = Integer(ENV.fetch("QUE_WORKER_COUNT", 1))
+  locker = Que::Locker.new(worker_priorities: Array.new(worker_count))
+  at_exit { locker.stop! }
+end
+
 if workers_count.positive?
   preload_app!
 
@@ -15,5 +23,10 @@ if workers_count.positive?
     if defined?(ActiveRecord::Base)
       ActiveRecord::Base.establish_connection
     end
+    start_embedded_que
+  end
+else
+  on_booted do
+    start_embedded_que
   end
 end
