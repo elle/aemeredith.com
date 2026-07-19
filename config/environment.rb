@@ -23,6 +23,10 @@ require_relative "../models/order_item"
 require_relative "../models/order_notification"
 require_relative "../models/weekly_selection"
 
+# Background jobs run on Que, piggybacking on Active Record's connection.
+Que.connection = ActiveRecord
+require_relative "../jobs/order_notification_job"
+
 DEV_SESSION_SECRET =
   "a-development-session-secret-that-is-long-enough-0000000000000000"
 
@@ -91,6 +95,7 @@ use Rack::Attack
 configure :test do
   Mail.defaults { delivery_method :test }
   Rack::Attack.enabled = false
+  Que.run_synchronously = true
 end
 
 TALKS = YAML.load_file("data/talks.yml").freeze

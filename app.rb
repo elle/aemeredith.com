@@ -66,9 +66,9 @@ post "/bread/orders" do
     }
   elsif items.any? && order.save
     begin
-      OrderNotification.deliver(order)
+      OrderNotificationJob.enqueue(order.id)
     rescue StandardError => error
-      warn "Order notification failed for order #{order.id}: #{error.message}"
+      warn "Order notification enqueue failed for order #{order.id}: #{error.message}"
     end
 
     haml :bread, locals: {
