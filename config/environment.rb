@@ -47,12 +47,14 @@ configure :production, :development do
 end
 
 configure :production do
+  # Mailgun's Heroku add-on sets the MAILGUN_SMTP_* vars automatically; fall
+  # back to generic SMTP_* names if a different provider is set up by hand.
   Mail.defaults do
     delivery_method :smtp,
-      address: ENV["SMTP_ADDRESS"],
-      port: ENV.fetch("SMTP_PORT", 587),
-      user_name: ENV["SMTP_USERNAME"],
-      password: ENV["SMTP_PASSWORD"],
+      address: ENV["MAILGUN_SMTP_SERVER"] || ENV["SMTP_ADDRESS"],
+      port: ENV["MAILGUN_SMTP_PORT"] || ENV.fetch("SMTP_PORT", 587),
+      user_name: ENV["MAILGUN_SMTP_LOGIN"] || ENV["SMTP_USERNAME"],
+      password: ENV["MAILGUN_SMTP_PASSWORD"] || ENV["SMTP_PASSWORD"],
       authentication: :plain,
       enable_starttls_auto: true
   end

@@ -87,7 +87,7 @@ column (defaulting to `unpaid`) as a seam for future payment integration.
 | `ADMIN_PASSWORD` | Password for the Elle Bread admin area |
 | `ORDER_RECIPIENT` | Where order notifications are sent (defaults to `elle@aemeredith.com`) |
 | `MAIL_FROM` | From address for notifications (defaults to `orders@aemeredith.com`) |
-| `SMTP_ADDRESS`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD` | SMTP delivery (production) |
+| `SMTP_ADDRESS`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD` | SMTP delivery (production). On Heroku the Mailgun add-on's `MAILGUN_SMTP_*` vars are used automatically and take precedence. |
 
 In development, mail is written to the log rather than sent.
 
