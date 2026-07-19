@@ -32,6 +32,8 @@ configure do
   set :haml, format: :html5
   set :session_secret, ENV.fetch("SESSION_SECRET", DEV_SESSION_SECRET)
   enable :sessions
+  # Serve the PWA web manifest with its proper content type.
+  Rack::Mime::MIME_TYPES[".webmanifest"] = "application/manifest+json"
 end
 
 # Guard the forms with CSRF tokens everywhere except the test suite, which
