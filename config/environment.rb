@@ -9,6 +9,7 @@ if defined?(Dotenv)
 end
 
 require "sinatra/activerecord"
+require_relative "mailgun_delivery"
 
 # The bakery's week and bread day are local dates, so pin the application to
 # the bakery's zone rather than the server's clock (which is UTC in production).
@@ -47,16 +48,25 @@ configure :production, :development do
 end
 
 configure :production do
-  # Mailgun's Heroku add-on sets the MAILGUN_SMTP_* vars automatically; fall
-  # back to generic SMTP_* names if a different provider is set up by hand.
-  Mail.defaults do
-    delivery_method :smtp,
-      address: ENV["MAILGUN_SMTP_SERVER"] || ENV["SMTP_ADDRESS"],
-      port: ENV["MAILGUN_SMTP_PORT"] || ENV.fetch("SMTP_PORT", 587),
-      user_name: ENV["MAILGUN_SMTP_LOGIN"] || ENV["SMTP_USERNAME"],
-      password: ENV["MAILGUN_SMTP_PASSWORD"] || ENV["SMTP_PASSWORD"],
-      authentication: :plain,
-      enable_starttls_auto: true
+  # Prefer Mailgun's HTTP API (using a sending key) when one is configured;
+  # otherwise fall back to SMTP (Mailgun's add-on vars, or generic SMTP_*).
+  if ENV["MAILGUN_API_KEY"]
+    Mail.defaults do
+      delivery_method MailgunDelivery,
+        api_key: ENV["MAILGUN_API_KEY"],
+        base_url: ENV["MAILGUN_API_BASE_URL"],
+        domain: ENV["MAILGUN_DOMAIN"]
+    end
+  else
+    Mail.defaults do
+      delivery_method :smtp,
+        address: ENV["MAILGUN_SMTP_SERVER"] || ENV["SMTP_ADDRESS"],
+        port: ENV["MAILGUN_SMTP_PORT"] || ENV.fetch("SMTP_PORT", 587),
+        user_name: ENV["MAILGUN_SMTP_LOGIN"] || ENV["SMTP_USERNAME"],
+        password: ENV["MAILGUN_SMTP_PASSWORD"] || ENV["SMTP_PASSWORD"],
+        authentication: :plain,
+        enable_starttls_auto: true
+    end
   end
 end
 

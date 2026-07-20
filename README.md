@@ -86,8 +86,9 @@ column (defaulting to `unpaid`) as a seam for future payment integration.
 | `SESSION_SECRET` | Secret for signed session cookies |
 | `ADMIN_PASSWORD` | Password for the Elle Bread admin area |
 | `ORDER_RECIPIENT` | Where order notifications are sent (defaults to `elle@aemeredith.com`) |
-| `MAIL_FROM` | From address for notifications (defaults to `orders@aemeredith.com`) |
-| `SMTP_ADDRESS`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD` | SMTP delivery (production). On Heroku the Mailgun add-on's `MAILGUN_SMTP_*` vars are used automatically and take precedence. |
+| `MAIL_FROM` | From address for notifications (defaults to `bread@aemeredith.com`) |
+| `MAILGUN_API_KEY`, `MAILGUN_DOMAIN` | Preferred email delivery — Mailgun HTTP API with a sending key. `MAILGUN_API_BASE_URL` overrides the region (EU). |
+| `SMTP_ADDRESS`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD` | SMTP fallback (used when no `MAILGUN_API_KEY`). Mailgun's add-on `MAILGUN_SMTP_*` vars take precedence over these. |
 
 In development, mail is written to the log rather than sent.
 

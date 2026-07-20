@@ -1,7 +1,7 @@
 require "mail"
 
 class OrderNotification
-  DEFAULT_FROM = "orders@aemeredith.com"
+  DEFAULT_FROM = "bread@aemeredith.com"
   DEFAULT_RECIPIENT = "elle@aemeredith.com"
 
   def self.deliver(order)
